@@ -1,1 +1,0 @@
-# mPOS-SDK-Android-Internal
