@@ -1,0 +1,151 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="transaction_state_identify">Betaalterminal identificeren</string>
+	<string name="transaction_state_connecting">Verbinding maken met betaalterminal</string>
+    <string name="transaction_state_cancelled_merchant_signature_disapproved">Handtekening afgewezen</string>
+    <string name="transaction_state_cancelled_shopper">Transactie afgebroken door klant</string>
+    <string name="transaction_state_cancelled_emv_error">EMV fout</string>
+    <string name="transaction_state_cancelled_sapi_error">SAPI fout</string>
+    <string name="transaction_state_cancelled_additional_data_retrieval_error">Kon geen additionele data ophalen</string>	
+    <string name="transaction_state_device_registration_preparing">Verbinding maken met betaalterminal</string>
+    <string name="transaction_state_cancelled_failed_print_receipt">Bon afdrukken mislukt</string>
+    <string name="transaction_state_cancelled_card_removed">Kaar verwijderd</string>
+    <string name="transaction_state_cancelling">Transactie wordt afgebroken, even geduld&#8230;</string>    
+    
+    <string name="transaction_state_card_details_provided">Kaartgegevens ingevoerd</string>
+    <string name="transaction_state_provide_card_details">Kaartgegevens invoeren a.u.b.</string>
+    <string name="transaction_state_referral">Verwijzing</string>
+    <string name="transaction_state_referral_checked">Verwijzing gecontroleerd</string>
+    <string name="transaction_state_wait_for_amount_adjustment">Wacht op een aanpassing van het bedrag</string>
+    <string name="transaction_state_card_inserted">Kaart ingevoerd</string>
+    <string name="transaction_state_card_removed">Kaart verwijderd</string>
+    <string name="transaction_state_approved_waiting_for_card_removal">Transactie goedgekeurd. Verwijder kaart a.u.b.</string>
+    <string name="transaction_state_error_invalid_transaction_type">Geen of ongeldig transactionType</string>
+    <string name="transaction_state_error_cashback_not_supported">Terugstorting nog niet ondersteund</string>
+    <string name="transaction_state_error_no_printer">Geen printer aanwezig, gebruik de ReceiptHandler</string>
+    <string name="transaction_state_error_invalid_currency_code">Ongeldige valutacode</string>
+    <string name="transaction_state_error_currency_not_supported">Niet ondersteunde valuta</string>
+    <string name="transaction_state_error_amount_too_low">Bedrag te laag</string>
+    <string name="transaction_state_error_ask_gratuity_not_allowed">AskGratuity alleen geldig voor GOODS_SERVICES</string>
+    <string name="transaction_state_error_manual_keyed_entry_not_allowed">Handmatige invoer niet toegestaan</string>
+    <string name="transaction_state_error_amount_gratuity_currencies_not_the_same">Betalingsvaluta en gratificatie valuta komen niet overeen</string>
+    <string name="transaction_state_error_gratuity_too_low">Fooi te laag</string>
+    <string name="transaction_state_error_gratuity_too_high">Fooi te hoog</string>
+    <string name="transaction_state_error_invalid_date">Ongeldige datum</string>
+    <string name="transaction_state_error_adjust_date_not_allowed">Datum mag niet aangepast worden</string>
+    <string name="transaction_state_error_merchant">Transactie afgebroken door winkelier</string>
+	<string name="transaction_state_error_status_tender">Status van transactie onbekend, deze transactie wordt terug gedraaid</string>
+    <string name="transaction_state_error_create_tender">ERROR - Unable to create tender for  amount <xliff:g id="account">%s</xliff:g></string>
+    
+	<string name="transaction_state_application_selected">Applicatie geselecteerd</string>
+	<string name="transaction_state_ask_gratuity">Vraag om fooi</string>
+	<string name="transaction_state_card_swiped">Magneetstrip doorgevoerd</string>
+	<string name="transaction_state_gratuity_entered">Gratificatie ingevoerd</string>
+	<string name="transaction_state_pin_digit_entered">PIN getal ingevoerd</string>
+	<string name="transaction_state_pin_entered">PIN ingevoerd</string>
+	<string name="transaction_state_wait_for_app_selection">Wacht op applicatieselectie</string>
+	<string name="transaction_state_wait_for_pin">Voer PIN in a.u.b.</string>
+	<string name="transaction_state_ask_dcc">Dynamic Currency Conversion proposed</string>
+	<string name="transaction_state_dcc_accepted">Exchange rates accepted</string>
+	<string name="transaction_state_dcc_rejected">Exchange rates rejected</string>
+	
+	<string name="transaction_refund_submitted">Refund submitted!</string>
+		            
+    <string name="transaction_state_initial_tender_created">Tender aangemaakt</string>
+    
+    <string name="transaction_state_device_registration_ok">Registratie succesvol</string>
+    <string name="transaction_state_device_registration_error_identify">Identificeren van terminal mislukt</string>
+    <string name="transaction_state_device_registration_error_register">Registreren van terminal mislukt</string>
+    <string name="transaction_state_device_registration_error_syncaction">Configuratie laden mislukt</string>
+    <string name="transaction_state_device_registration_error_syncdevice">Configuratie opslaan mislukt</string>
+    <string name="transaction_state_device_registration_error_verify">Betaalterminal verificatie mislukt</string>
+    <string name="transaction_state_device_registration_error_nonetwork">Er is geen netwerk beschikbaar</string>
+    <string name="transaction_state_device_registration_error_noroute">Kon de Adyen server niet bereiken</string>
+    
+    <string name="transaction_state_device_syncing_identify">Betaalterminal identificeren</string>
+    <string name="transaction_state_device_syncing_sync_adyen">Synchroniseren met Adyen</string>
+    <string name="transaction_state_device_syncing_sync_device">Configuratie synchroniseren met betaalterminal</string>
+    <string name="transaction_state_device_syncing_completed">Completed</string>
+    <string name="transaction_state_device_syncing_completed_error_identify">Voltooid met fout</string>
+    
+    <string name="transaction_state_device_syncing_error_sync_adyen">Probleem bij het synchroniseren met Adyen</string>
+    <string name="transaction_state_device_syncing_error_sync_device">Probleem bij het synchroniseren van de configuratie</string>	
+    
+    <string name="transaction_state_initial">Transactie starten</string>
+    <string name="transaction_state_created">Transactie gestart</string>
+    <string name="transaction_state_processing">Transactie wordt verwerkt</string>
+    <string name="transaction_state_print_receipt">Bon wordt geprint</string>
+    <string name="transaction_state_receipt_printed">Bon geprint</string>
+    <string name="transaction_state_check_signature">Controleer handtekening</string>
+    <string name="transaction_state_signature_checked">Handtekening akkoord</string>
+    <string name="transaction_state_approved">Transactie succesvol verwerkt</string>
+    <string name="transaction_state_cancelled">Transaction afgebroken</string>
+    <string name="transaction_state_declined">Transaction afgewezen</string>
+    <string name="transaction_state_additional_data_available">Korting is toegewezen</string>
+    <string name="transaction_state_acknowledge">Transactie gestart</string>
+    <string name="transaction_state_error">Er is een fout opgetreden</string>
+
+    <string name="transaction_state_cancelled_shopper_selection">Applicatie selectie afgebroken door klant</string>
+    <string name="transaction_state_cancelled_shopper_pin_entry">PIN invoer afgebroken door klant</string>
+    <string name="transaction_state_cancelled_merchant">Transactie afgebroken door winkelier</string>
+    <string name="transaction_state_cancelled_device_timeout_card_entry">Apparaat-timeout tijdens wachten op kaart</string>
+
+    <string name="transaction_state_declined_psp_could_not_determine_variant">PSP kon kaarttype niet bepalen</string>
+    <string name="transaction_state_declined_device_signature_failed">Handtekening afgewezen</string>
+    <string name="transaction_state_declined_psp_does_not_support_payment_details">PSP ondersteunt kaarttype niet</string>
+    
+    <string name="transaction_state_declined_acquirer">Acquirer response: declined</string>
+    <string name="transaction_state_declined_acquirer_referral">Acquirer response: referral</string>
+    <string name="transaction_state_declined_acquirer_error">Acquirer response: error</string>
+    <string name="transaction_state_declined_acquirer_block_card">Acquirer response: block card</string>
+    <string name="transaction_state_declined_acquirer_card_expired">Acquirer response: card expired</string>
+    <string name="transaction_state_declined_acquirer_invalid_amount">Acquirer response: invalid amount</string>
+    <string name="transaction_state_declined_acquirer_invalid_card">Acquirer response: invalid card</string>
+    <string name="transaction_state_declined_acquirer_issuer_unavailable">Acquirer response: issuer unavailable</string>
+    <string name="transaction_state_declined_acquirer_not_supported">Acquirer response: not supported</string>
+    <string name="transaction_state_declined_acquirer_not_3d_authenticated">Acquirer response: not 3D authenticated</string>
+    <string name="transaction_state_declined_acquirer_not_enough_balance">Acquirer response: not enough balance</string>
+    <string name="transaction_state_declined_acquirer_pending">Acquirer response: pending</string>
+    <string name="transaction_state_declined_acquirer_fraud">Acquirer response: fraud</string>
+    <string name="transaction_state_declined_acquirer_cancelled">Acquirer response: cancelled</string>
+    <string name="transaction_state_declined_acquirer_shopper_cancelled">Acquirer response: shopper cancelled</string>
+    <string name="transaction_state_declined_acquirer_invalid_pin">Acquirer response: invalid PIN</string>
+    <string name="transaction_state_declined_acquirer_pin_tries_exceed">Acquirer response: PIN tries exceeded</string>
+    <string name="transaction_state_declined_acquirer_pin_validation_not_possible">Acquirer response: PIN validation not possible</string>
+    
+    <string name="transaction_state_refused_moto_InvalidCardNumber">Invalid card number</string>
+    <string name="transaction_state_refused_moto_CVCisNotTheRightLength">CVC is not the right length</string>
+    <string name="transaction_state_refused_moto_RecurringNotEnabled">Recurring is not enabled</string>
+    <string name="transaction_state_refused_moto_CardHolderNameMissing">Card Holder Missing</string>
+    <string name="transaction_state_refused_moto_PaymentDetailsAreNotSupported">Payment details are not supported</string>
+    
+    <string name="transaction_state_error_device_print_receipt_failed">Bon printen mislukt</string>
+    <string name="transaction_state_error_device_emv_error">EMV fout - heeft klant de kaart verwijderd?</string>
+    <string name="transaction_state_error_device_sapi_error">SAPI fout</string>
+    <string name="transaction_state_error_psp_validate_error">Kon geen additionele data van PSP ophalen</string>
+    <string name="transaction_state_error_no_internet_connection">Geen internet verbinding mogelijk</string>
+    <string name="transaction_state_error_network_error">Communicatiefout met de server</string>
+    <string name="transaction_state_error_bluetooth">Bluetooth communicatie probleem</string>
+    <string name="transaction_state_error_no_device_connected">Geen bluetooth apparaat verbonden</string>
+    
+    <string name="transaction_state_error_identify">Fout bij identificeren terminal</string>
+    
+    <string name="transaction_state_device_identify">Terminal geïdentificeerd</string>
+    <string name="transaction_state_device_connect">Verbinding met terminal wordt gemaakt</string>
+    
+    <string name="transaction_state_device_registration_identify">Terminal identificatie</string>
+    <string name="transaction_state_device_registration_register">Terminal wordt geregistreerd, dit kan enige tijd duren.</string>
+    <string name="transaction_state_device_registration_sync_adyen">Synchroniseren met Adyen</string>
+    <string name="transaction_state_device_registration_sync_device">Configuratie synchroniseren met terminal</string>
+    <string name="transaction_state_device_registration_verify">Terminal configuratie wordt gevalideerd</string>
+    
+	<string name="transaction_refund_error_fail">Refund failed</string>
+	
+	<string name="error_bad_credentials">Ongeldige inloggegevens</string>
+    <string name="error_noroute">Kon de Adyen server niet bereiken</string>
+    <string name="error_nonetwork">Er is geen netwerk beschikbaar</string>
+    
+    <string name="success">succes</string>
+    <string name="fail">mislukt</string>    
+    
+</resources>

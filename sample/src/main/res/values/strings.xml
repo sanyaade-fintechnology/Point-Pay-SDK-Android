@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PaylevenSDK</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="login_button">Login</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_username_hint">Username</string>
+
+    <string name="device_list_empty">There are no paired payleven devices yet. Use phone\'s
+        bluetooth settings to pair payleven device. Once in bluetooth settings press and hold
+        \'0\' on the payleven bluetooth device until the corresponding message is displayed.
+        Then start the pairing process.</string>
+    <string name="device_operation_progress">Device registration is in progress…</string>
+
+    <string name="payment_button">Pay</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="payment_result_message">Payment result:</string>
+    <string name="payment_status_empty">No result</string>
+    <string name="payment_amount_hint">Amount</string>
+    <string name="payment_currency_hint">Currency ISO 4217</string>
+
+    <string name="signature_confirm_message">Confirm customer\'s signature</string>
+    <string name="signature_confirm_button">Confirm</string>
+    <string name="signature_decline_button">Decline</string>
+    <string name="amount_null_error">Amount can not be null</string>
+</resources>

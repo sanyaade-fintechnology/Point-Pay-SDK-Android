@@ -1,0 +1,149 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    
+	<string name="transaction_state_identify">Identificando leitor de cartão Chip&amp;Senha</string>
+	<string name="transaction_state_connecting">Conectando ao leitor de cartão Chip&amp;Senha</string>
+	
+    <string name="transaction_state_acknowledge">Transação iniciada</string>
+    <string name="transaction_state_additional_data_available">Discount concedido</string>
+    <string name="transaction_state_approved">Transação aprovada</string>
+    
+    <string name="transaction_state_cancelled">Transação cancelada</string>
+    <string name="transaction_state_cancelled_device_timeout_card_entry">Tempo esgotado, o cartão não foi inserido</string>
+    <string name="transaction_state_cancelled_merchant">Lojista cancelou a transação</string>
+    <string name="transaction_state_cancelled_merchant_signature_disapproved">Lojista rejeitou a assinatura</string>
+    <string name="transaction_state_cancelled_shopper">Cliente cancelou a transação</string>
+    <string name="transaction_state_cancelled_emv_error">Emv erro</string>
+    <string name="transaction_state_cancelled_sapi_error">sapi erro</string>
+    <string name="transaction_state_cancelled_additional_data_retrieval_error">Falha ao recuperar dados adicionais</string>
+    <string name="transaction_state_cancelled_shopper_pin_entry">Cliente cancelou a transação ao inserir senha</string>
+    <string name="transaction_state_cancelled_failed_print_receipt">Falha na impressão do recibo</string>
+    <string name="transaction_state_cancelled_shopper_selection">Cliente cancelou escolha da aplicação</string>
+    <string name="transaction_state_cancelled_card_removed">Cartão removido</string>
+    <string name="transaction_state_cancelling">Cancelando transação, aguarde um momento por favor&#8230;</string>
+    
+    <string name="transaction_state_check_signature">Verificação de assinatura</string>
+    <string name="transaction_state_created">Transação iniciada</string>
+    
+    <string name="transaction_state_declined">Transacão recusada</string>
+    <string name="transaction_state_declined_acquirer">Resposta do adquirente: recusado</string>
+    <string name="transaction_state_declined_acquirer_block_card">Resposta do adquirente: cartão bloqueado</string>
+    <string name="transaction_state_declined_acquirer_cancelled">Resposta do adquirente: cancelado</string>
+    <string name="transaction_state_declined_acquirer_card_expired">Resposta do adquirente: cartão expirado</string>
+    <string name="transaction_state_declined_acquirer_error">Resposta do adquirente: erro</string>
+    <string name="transaction_state_declined_acquirer_fraud">Resposta do adquirente: fraude</string>
+    <string name="transaction_state_declined_acquirer_invalid_amount">Resposta do adquirente: valor inválido</string>
+    <string name="transaction_state_declined_acquirer_invalid_card">Resposta do adquirente: cartão inválido</string>
+    <string name="transaction_state_declined_acquirer_invalid_pin">Resposta do adquirente: senha inválida</string>
+    <string name="transaction_state_declined_acquirer_issuer_unavailable">Resposta do adquirente: emissor indisponível</string>
+    <string name="transaction_state_declined_acquirer_not_3d_authenticated">Resposta do adquirente: sem autenticação com emissor</string>
+    <string name="transaction_state_declined_acquirer_not_enough_balance">Resposta do adquirente: saldo insuficiente</string>
+    <string name="transaction_state_declined_acquirer_not_supported">Resposta do adquirente: não suportado</string>
+    <string name="transaction_state_declined_acquirer_pending">Resposta do adquirente: pendente</string>
+    <string name="transaction_state_declined_acquirer_pin_tries_exceed">Resposta do adquirente: limite de tentativas de senha excedido</string>
+    <string name="transaction_state_declined_acquirer_pin_validation_not_possible">Resposta do adquirente: Impossível validar senha</string>
+    <string name="transaction_state_declined_acquirer_referral">Resposta do adquirente: encaminhamento</string>
+    <string name="transaction_state_declined_acquirer_shopper_cancelled">Resposta do adquirente: cancelado pelo cliente</string>
+    <string name="transaction_state_declined_device_signature_failed">Assinatura rejeitada</string>
+    <string name="transaction_state_declined_psp_could_not_determine_variant">PSP não pode determinar a variante</string>
+    <string name="transaction_state_declined_psp_does_not_support_payment_details">PSP não suporta detalhes de pagamento</string>
+    
+    <string name="transaction_state_refused_moto_InvalidCardNumber">Número de cartão inváldido</string>
+    <string name="transaction_state_refused_moto_CVCisNotTheRightLength">CVC is not the right length</string>
+    <string name="transaction_state_refused_moto_RecurringNotEnabled">Recorrência não habilitado</string>
+    <string name="transaction_state_refused_moto_CardHolderNameMissing">Titular do cartão não informado</string>
+    <string name="transaction_state_refused_moto_PaymentDetailsAreNotSupported">Detalhes de pagamento não suportado</string>
+    
+    <string name="transaction_state_device_connect">Conectando ao leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_device_identify">Identificando leitor de cartão Chip&amp;Senha</string>
+    
+    <string name="transaction_state_card_details_provided">Fornecido detalhes do cartão</string>
+    <string name="transaction_state_provide_card_details">Forceça os detalhes do cartão</string>
+    <string name="transaction_state_referral">Encaminhamento</string>
+    <string name="transaction_state_referral_checked">Encaminhamento verificado</string>
+    <string name="transaction_state_wait_for_amount_adjustment">Esperando ajuste a valor</string>
+    <string name="transaction_state_card_inserted">Cartão inserido</string>
+    <string name="transaction_state_card_removed">Cartão removido</string>
+    <string name="transaction_state_approved_waiting_for_card_removal">Transação aprovada. Esperando cliente remover o cartão</string>
+    
+    <string name="transaction_state_device_registration_identify">Identificando leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_device_registration_register">Registrando leitor de cartão Chip&amp;Senha, aguarde um momento por favor&#8230;</string>
+    <string name="transaction_state_device_registration_sync_adyen">Sincronizando dados com Adyen</string>
+    <string name="transaction_state_device_registration_sync_device">Sincronizando configuração com o leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_device_registration_verify">Verificando configuração do leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_device_registration_preparing">Conectando ao leitor de cartão Chip&amp;Senha</string>
+    
+    <string name="transaction_state_device_registration_ok">Finalizado com sucesso</string>
+    <string name="transaction_state_device_registration_error_identify">Falha na identificação do leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_device_registration_error_register">Falha no registro do leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_device_registration_error_syncaction">Falha no carregamento da configuração</string>
+    <string name="transaction_state_device_registration_error_syncdevice">Falha no armazenamento da configuração</string>
+    <string name="transaction_state_device_registration_error_verify">Falha na verificação do leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_device_registration_error_nonetwork">Sem conexão</string>
+    <string name="transaction_state_device_registration_error_noroute">Sem comunicação com os servidores da Adyen</string>
+    
+    <string name="transaction_state_device_syncing_identify">Identificando leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_device_syncing_sync_adyen">Sincronizando dados com servidor da Adyen</string>
+    <string name="transaction_state_device_syncing_sync_device">Sincronizando configuração com o leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_device_syncing_completed">Finalizado com sucesso</string>
+    <string name="transaction_state_device_syncing_completed_error_identify">Finalizado com erro</string>
+    
+    <string name="transaction_state_device_syncing_error_sync_adyen">Erro sincronizando dados com servidor da Adyen</string>
+    <string name="transaction_state_device_syncing_error_sync_device">Erro sincronizando configuração com o leitor de cartão Chip&amp;Senha</string>
+    
+    <string name="transaction_state_error">Ocorreu um erro</string>
+    <string name="transaction_state_error_bluetooth">Erro na comunicação Bluetooth com leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_error_device_emv_error">EMV erro - Cliente removeu o cartão?</string>
+    <string name="transaction_state_error_device_print_receipt_failed">Falha na impressão do recibo</string>
+    <string name="transaction_state_error_device_sapi_error">SAPI erro</string>
+    <string name="transaction_state_error_identify">Erro identificando leitor de cartão Chip&amp;Senha</string>
+    <string name="transaction_state_error_network_error">Erro comunicando com o servidor da Adyen</string>
+    <string name="transaction_state_error_no_device_connected">Nenhum leitor de cartão Chip&amp;Senha conectado</string>
+    <string name="transaction_state_error_no_internet_connection">Falha na comunicação com o servidor da Adyen, sem conexão com a rede</string>
+    <string name="transaction_state_error_psp_validate_error">Falha na recuperação de dados adicionais do PSP</string>
+    <string name="transaction_state_error_invalid_transaction_type">tipo de transação inválida</string>
+    <string name="transaction_state_error_cashback_not_supported">Cashback não suportado</string>
+    <string name="transaction_state_error_no_printer">Impressora indisponível, por favor utilize ReceiptHandler</string>
+    <string name="transaction_state_error_invalid_currency_code">Código da moeda inválido</string>
+    <string name="transaction_state_error_currency_not_supported">Moeda não suportado</string>
+    <string name="transaction_state_error_amount_too_low">Valor muito baixo</string>
+    <string name="transaction_state_error_ask_gratuity_not_allowed">AskGratuity não é permitido para GOODS_SERVICES</string>
+    <string name="transaction_state_error_manual_keyed_entry_not_allowed">Manual Keyed Entry não suportado</string>
+    <string name="transaction_state_error_amount_gratuity_currencies_not_the_same">Amount currency and Gratuity currency are not the same</string>
+    <string name="transaction_state_error_gratuity_too_low">Gratuidade muito baixo</string>
+    <string name="transaction_state_error_gratuity_too_high">Gratuidade muito alto</string>
+    <string name="transaction_state_error_invalid_date">Data fornecida é inválida</string>
+    <string name="transaction_state_error_adjust_date_not_allowed">Data de ajuste não permitado</string>
+	<string name="transaction_state_error_merchant">Lojista cancelou a transação</string>
+	<string name="transaction_state_error_status_tender">status da transação não determinado, a transação será revertida</string>
+	<string name="transaction_state_error_create_tender">ERRO - Não foi possível criar transação com valor <xliff:g id="account">%s</xliff:g></string>
+	
+    <string name="transaction_state_initial">Iniciando transação</string>
+    <string name="transaction_state_initial_tender_created">Proposta criada</string>
+    <string name="transaction_state_print_receipt">Imprimindo recibo</string>
+    <string name="transaction_state_processing">Processando transação</string>
+    <string name="transaction_state_receipt_printed">Recibo impresso</string>
+    <string name="transaction_state_signature_checked">Assinatura verificada</string>
+	<string name="transaction_state_application_selected">Aplicação escolhida</string>
+	<string name="transaction_state_ask_gratuity">Gratuidade solicitada</string>
+	<string name="transaction_state_card_swiped">Tarja magnetica verificada</string>
+	<string name="transaction_state_gratuity_entered">Gratuidade digitada</string>
+	<string name="transaction_state_pin_digit_entered">Digitando senha</string>
+	<string name="transaction_state_pin_entered">Senha digitada</string>
+	<string name="transaction_state_wait_for_app_selection">Aguardando escolha da aplicação</string>
+	<string name="transaction_state_wait_for_pin">Aguardando senha</string>
+	<string name="transaction_state_ask_dcc">DCC (Conversão dinâmica de moedas) ofertado</string>
+	<string name="transaction_state_dcc_accepted">Taxa de conversão aceita</string>
+	<string name="transaction_state_dcc_rejected">Taxa de conversão rejeitado</string>
+	
+	<string name="transaction_refund_submitted">Reembolso enviado!</string>
+		
+	<string name="transaction_refund_error_fail">Falha ao enviar reembolso</string>
+	
+	<string name="error_bad_credentials">Login ou senha inválidos</string>
+    <string name="error_noroute">Sem comunicação com os servidores da Adyen</string>
+    <string name="error_nonetwork">Sem conexão</string>
+    
+    <string name="success">sucesso</string>
+    <string name="fail">falha</string>	
+    
+</resources>

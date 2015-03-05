@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/amount_entry_amount_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/payment_amount_hint"
+        android:inputType="numberDecimal"
+        android:gravity="end"
+        android:textSize="24sp"
+        />
+    <TextView
+        android:id="@+id/amount_entry_currency_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        />
+</merge>
