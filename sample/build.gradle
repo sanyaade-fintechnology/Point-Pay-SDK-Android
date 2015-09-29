@@ -8,8 +8,8 @@ repositories {
 }
 
 android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "de.payleven.payment.example"
@@ -23,7 +23,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:21.0.2'
+    compile 'com.android.support:support-v4:22.2.0'
+    compile 'com.android.support:appcompat-v7:22.2.0'
     //Use the specific library version here
     compile 'de.payleven.payment:mpos:1.1.0@jar'
     //This is a helper payleven library.
