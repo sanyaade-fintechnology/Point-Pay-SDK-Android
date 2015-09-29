@@ -40,7 +40,7 @@ Include payleven repository to the list of build repositories:
  //Use the specific library version here
  compile 'de.payleven.payment:mpos:1.1.0@jar'
  //This is a helper payleven library.
- compile 'de.payleven:psp-library:1.1.0@aar'
+ compile 'de.payleven:psp-library:1.0.0@aar'
  ```
   
 ###### Maven
