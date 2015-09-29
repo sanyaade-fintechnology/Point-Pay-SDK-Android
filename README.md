@@ -1,14 +1,14 @@
 [![Platform](https://img.shields.io/badge/Platform-Android-brightgreen.svg?style=flat-square)]()
-[![Version](https://img.shields.io/github/release/payleven/mPOS-SDK-Android.svg?style=flat-square)]()
+[![Version](https://img.shields.io/badge/version-1.1.0-brightgreen.svg?style=flat-square)]()
 [![API](https://img.shields.io/badge/API-14%2B-orange.svg?style=flat-square)]()
 [![Berlin](https://img.shields.io/badge/Made%20in-Berlin-red.svg?style=flat-square)]()
 
 # payleven mPOS SDK
 
-This project provides an Android API to communicate with the payleven Chip & PIN card reader in order to accept debit and credit card payments. Learn more about the Chip & PIN card reader and payment options on one of payleven's regional [websites](https://payleven.com/).
+This project provides an Android API to communicate with the payleven Chip & PIN card reader in order to accept debit and credit card payments. Since version 1.1.0 the project also provides an Android API for refund payments. Learn more about the Chip & PIN card reader and payment options on one of payleven's regional [websites](https://payleven.com/). If you have any further questions please contact us by sending an email to developer@payleven.com.
 ### Prerequisites
 1. Register with [payleven](http://payleven.com) in order to get personal merchant credentials and a card reader.
-2. In order to receive an API key, please contact us by sending an email to developer@payleven.com.
+2. Request an API key in [payleven developers](https://service.payleven.com/uk/developer).
 
 ### Installation
 ##### Repository
@@ -17,7 +17,7 @@ Include payleven repository to the list of build repositories:
  ```groovy
  repositories {
      maven{
-         url 'https://download.payleven.com/maven'
+         url 'https://download.payleven.de/maven'
      }
  }
  ```
@@ -28,7 +28,7 @@ Include payleven repository to the list of build repositories:
          ...
      <repository>
          <id>payleven-repo</id>
-         <url>https://download.payleven.com/maven</url>
+         <url>https://download.payleven.de/maven</url>
      </repository>
  </repositories>
  ```
@@ -38,9 +38,9 @@ Include payleven repository to the list of build repositories:
 ###### Gradle
  ```groovy
  //Use the specific library version here
- compile 'de.payleven.payment:mpos:1.0.0@aar'
+ compile 'de.payleven.payment:mpos:1.1.0@jar'
  //This is a helper payleven library.
- compile 'de.payleven:psp-library:+@aar'
+ compile 'de.payleven:psp-library:1.1.0@aar'
  ```
   
 ###### Maven
@@ -48,13 +48,13 @@ Include payleven repository to the list of build repositories:
  <dependency>
    <groupId>de.payleven.payment</groupId>
    <artifactId>mpos</artifactId>
-   <version>1.0.0</version>
+   <version>1.1.0</version>
    <type>aar</type>
  </dependency>
  <dependency>
    <groupId>de.payleven</groupId>
    <artifactId>psp-library</artifactId>
-   <version>1.9p22</version>
+   <version>1.1.0</version>
    <type>aar</type>
  </dependency>
  ```
@@ -80,8 +80,8 @@ Though we strongly recommend using gradle and Android Studio, we also provided t
 eclipse users.
 Before importing _sample_eclipse_ project into eclipse you must perform the following steps:
  1. Download latest GSON library from http://mvnrepository.com/artifact/com.google.code.gson/gson and copy it into _sample_eclipse/sample/libs_ folder.
- 2. Download latest Payleven mPOS SDK from https://download.payleven.com/maven/de/payleven/payment/mpos and copy it into _sample_eclipse/sample/libs_ folder.
- 3. Download Payleven PSP library from https://download.payleven.com/maven/de/payleven/psp-library and copy it into _sample_eclipse/psp-library/libs_ folder
+ 2. Download latest Payleven mPOS SDK from https://download.payleven.de/maven/de/payleven/payment/mpos and copy it into _sample_eclipse/sample/libs_ folder.
+ 3. Download Payleven PSP library from https://download.payleven.de/maven/de/payleven/psp-library-core and copy it into _sample_eclipse/psp-library/libs_ folder
 
 ### Usage
 #### Permissions
@@ -184,11 +184,11 @@ Initialize the actual payment request. For security purposes you must provide th
  ```java
  private void startPayment(Device device, BigDecimal amount, Currency currency) {
      //Generated unique payment id
-     String generatedId = "unique_id";
+     String generatedPaymentId = "unique_payment_id";
      //Current location of the device
      GeoLocation location = new GeoLocation(lattitude, longitude);
      PaymentRequest paymentRequest = new PaymentRequest(amount, currency,
-                                                 generatedId, location);
+                                                 generatedPaymentId, location);
      PaymentTask paymentTask = mPaylevenApi.createPaymentTask(paymentRequest, device);
      paymentTask.startAsync(new PaymentListener() {
          @Override
@@ -210,7 +210,31 @@ Initialize the actual payment request. For security purposes you must provide th
      });
    }
  ```
+
+##### How to make a refund payment
+Initialize the refund payment request.
+
+ ```java
+ private void doRefund(String paymentId, BigDecimal amount, Currency currency, String description) {
+     //Generated unique refund id
+     String generatedRefundId = "unique_refund_id";
+     RefundRequest request = new RefundRequest(generatedRefundId, paymentId, amount,
+                                                    currency, description);
+     RefundTask refundTask = mPaylevenApi.createRefundTask(request);
+     refundTask.startAsync(new RefundListener() {
+         @Override
+         public void onError(PaylevenError error) {
+             //Show error message
+         }
+
+         @Override
+         public void onRefundComplete(RefundResult refundResult) {
+             //Handle refund result
+         }
+     });
+   }
+ ```
       
 #### Documentation
-[API Reference](http://payleven.github.io/mPOS-SDK-Android/javadoc/)
+[API Reference](http://payleven.github.io/mPOS-SDK-Android/1.1.0/javadoc/)
       

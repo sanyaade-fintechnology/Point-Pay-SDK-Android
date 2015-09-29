@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/default_margin_doubled">
+
+    <LinearLayout
+        android:id="@+id/device_list_section"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TerminalListLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/available_terminals_label"/>
+
+        <ListView
+            android:id="@+id/added_devices_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@android:color/transparent"
+            android:listSelector="@drawable/list_selector_background"/>
+
+        <TextView
+            android:id="@+id/alternative_list_empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="@string/no_alternative_terminals"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/no_devices_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_above="@+id/button_bluetooth_settings">
+
+            <ImageView
+                android:id="@+id/terminal_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/terminal_icon_bottom_margin"
+                android:src="@drawable/no_terminal_paired"/>
+
+            <TextView
+                android:id="@+id/no_device_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin_doubled"
+                android:text="@string/no_paired_terminals"
+                android:textSize="@dimen/empty_screen_title_message_size"/>
+
+            <TextView
+                android:id="@+id/pair_device_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/pair_terminal_hint"
+                style="@style/GreyText"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_bluetooth_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bluetooth_settings"
+            android:layout_alignParentBottom="true"
+            style="@style/DefaultButton"/>
+
+    </RelativeLayout>
+</RelativeLayout>

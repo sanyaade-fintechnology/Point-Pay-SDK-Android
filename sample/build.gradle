@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 repositories {
     mavenCentral()
     maven{
-        url 'https://download.payleven.com/maven'
+        url 'https://download.payleven.de/maven'
     }
 }
 
@@ -16,7 +16,8 @@ android {
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
-        versionName "1.0"
+        versionName "1.1.0"
+        buildConfigField "String", "PAYLEVEN_API_KEY", "\"01a4ac1954c3408caca76ba087ae2510\""
     }
 }
 
@@ -24,8 +25,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:21.0.2'
     //Use the specific library version here
-    compile 'de.payleven.payment:mpos:+@jar'
-    //This is a helper payleven library. No need to set the specific version here.
-    compile 'de.payleven:psp-library:+@aar'
+    compile 'de.payleven.payment:mpos:1.1.0@jar'
+    //This is a helper payleven library.
+    compile 'de.payleven:psp-library:1.1.0@aar'
     compile 'com.google.code.gson:gson:2.3'
 }

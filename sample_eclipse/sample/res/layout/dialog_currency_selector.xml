@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_height="wrap_content"
+  android:layout_width="match_parent"
+  android:orientation="vertical"
+  android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/currency"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <RadioGroup
+        android:id="@+id/radiogroup_currency"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/default_margin">
+
+        <RadioButton
+            style="@style/CurrencyDialogItemStyle"
+            android:id="@+id/radiogroup_currency_eur"
+            android:tag="EUR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/currency_eur"
+            android:background="?attr/selectableItemBackground"/>
+
+        <RadioButton
+            style="@style/CurrencyDialogItemStyle"
+            android:id="@+id/radiogroup_currency_gbp"
+            android:tag="GBP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/currency_gbp"
+            android:background="?attr/selectableItemBackground"/>
+
+        <RadioButton
+            style="@style/CurrencyDialogItemStyle"
+            android:id="@+id/radiogroup_currency_pln"
+            android:tag="PLN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/currency_pln"
+            android:background="?attr/selectableItemBackground"/>
+
+    </RadioGroup>
+
+</LinearLayout>
