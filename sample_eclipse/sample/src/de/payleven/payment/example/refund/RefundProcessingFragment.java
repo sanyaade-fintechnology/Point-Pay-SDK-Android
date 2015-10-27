@@ -165,6 +165,7 @@ public class RefundProcessingFragment extends Fragment implements RefundProcessi
     }
 
     private void setupProgressView(View view) {
+        view.findViewById(R.id.button_cancel).setVisibility(View.INVISIBLE);
         mProgressView = (LoadingView) view.findViewById(R.id.payment_process_loader);
         mProgressView.setText(getString(R.string.refund_in_progress));
     }
@@ -194,7 +195,8 @@ public class RefundProcessingFragment extends Fragment implements RefundProcessi
     private void setUpActionBar() {
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setTitle(getResources().getString(R.string.refund_title));
         }
     }
 

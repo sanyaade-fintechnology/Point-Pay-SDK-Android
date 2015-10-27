@@ -14,6 +14,7 @@
         android:layout_weight="4"
         android:gravity="center"/>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -21,125 +22,42 @@
         android:gravity="center_vertical|top"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/payment_button"
+            style="@style/HomeItem"
+            android:drawableLeft="@drawable/icn_coins"
+            android:drawableStart="@drawable/icn_coins"
+            android:text="@string/menu_payment"/>
 
-            <ImageView
-                android:layout_width="@dimen/left_margin_complete"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icn_coins"
-                style="@style/HomeIcon"/>
+        <View style="@style/HomeSeparator"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <TextView
+            android:id="@+id/refund_button"
+            android:drawableLeft="@drawable/icn_refund"
+            android:drawableStart="@drawable/icn_refund"
+            android:text="@string/menu_refund"
+            style="@style/HomeItem"/>
 
-                <TextView
-                    android:id="@+id/payment_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_payment"
-                    style="@style/HomeItem"/>
+        <View style="@style/HomeSeparator"/>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey_separator"/>
-            </LinearLayout>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/terminals_button"
+            android:drawableLeft="@drawable/icn_terminals"
+            android:drawableStart="@drawable/icn_terminals"
+            android:text="@string/menu_terminals"
+            style="@style/HomeItem"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <View style="@style/HomeSeparator"/>
 
-            <ImageView
-                android:layout_width="@dimen/left_margin_complete"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icn_refund"
-                style="@style/HomeIcon"/>
+        <TextView
+            android:id="@+id/logout_button"
+            android:drawableLeft="@drawable/icn_logout"
+            android:drawableStart="@drawable/icn_logout"
+            android:text="@string/menu_logout"
+            style="@style/HomeItem"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <View style="@style/HomeSeparator"/>
 
-                <TextView
-                    android:id="@+id/refund_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_refund"
-                    style="@style/HomeItem"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey_separator"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/left_margin_complete"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icn_terminals"
-                style="@style/HomeIcon"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/terminals_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_terminals"
-                    style="@style/HomeItem"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey_separator"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/left_margin_complete"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icn_logout"
-                style="@style/HomeIcon"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/logout_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/menu_logout"
-                    style="@style/HomeItem"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey_separator"/>
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 
     <TextView
@@ -150,4 +68,5 @@
         android:gravity="bottom"
         android:layout_weight="1"
         style="@style/GreyText"/>
+
 </LinearLayout>

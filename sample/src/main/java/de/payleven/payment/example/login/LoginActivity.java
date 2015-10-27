@@ -28,8 +28,13 @@ import de.payleven.payment.example.view.LoadingView;
  * Performs log in to payleven.
  */
 public class LoginActivity extends FragmentActivity {
-    //Put your api key here or updated it in the build.gradle script.
+    /*
+     * Change here or in build.gradle script to your API key.
+     *
+     * You can get your key here: https://service.payleven.com/uk/developer
+     */
     private static final String API_KEY = BuildConfig.PAYLEVEN_API_KEY;
+
     private PaylevenRegistrationListenerImpl registrationListener;
 
     private PaylevenProvider mPaylevenProvider;
@@ -148,8 +153,25 @@ public class LoginActivity extends FragmentActivity {
     private void startRegistration(String username, String password) {
         registrationListener = new PaylevenRegistrationListenerImpl(this, username);
         PaylevenFactory.registerAsync(getApplicationContext(),
+                /**
+                 * Replace this value with the merchant username.
+                 *
+                 * You can register a merchant account here: https://payleven.com/
+                 */
                 username,
+
+                /**
+                 * Replace this value with the merchant password.
+                 *
+                 * You can register a merchant account here: https://payleven.com/
+                 */
                 password,
+
+                /*
+                 * Change here or in build.gradle script to your API key.
+                 *
+                 * You can get your key here: https://service.payleven.com/uk/developer
+                 */
                 API_KEY,
                 registrationListener);
     }

@@ -2,7 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/default_margin_doubled">
+                android:paddingTop="@dimen/default_margin_doubled"
+                android:paddingBottom="@dimen/default_margin_doubled"
+                android:paddingLeft="@dimen/default_margin_doubled"
+                android:paddingStart="@dimen/default_margin_doubled">
 
     <LinearLayout
         android:id="@+id/device_list_section"
@@ -38,6 +41,8 @@
         android:id="@+id/no_devices_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingRight="@dimen/default_margin_doubled"
+        android:paddingEnd="@dimen/default_margin_doubled"
         android:visibility="gone">
 
         <LinearLayout

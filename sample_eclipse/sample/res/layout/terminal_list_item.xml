@@ -50,6 +50,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="20dp"
+                android:layout_marginRight="@dimen/default_margin_doubled"
+                android:layout_marginEnd="@dimen/default_margin_doubled"
                 android:background="@drawable/icn_tick"/>
 
         </RelativeLayout>

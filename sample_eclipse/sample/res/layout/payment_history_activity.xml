@@ -2,14 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:padding="@dimen/default_margin_doubled">
+              android:paddingTop="@dimen/default_margin_doubled"
+              android:paddingBottom="@dimen/default_margin_doubled">
 
     <ListView
         android:id="@+id/payment_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/default_margin_doubled"
-        android:layout_marginStart="@dimen/default_margin_doubled"/>
+        android:paddingLeft="@dimen/default_margin_quadrupled"
+        android:paddingStart="@dimen/default_margin_quadrupled"/>
 
     <RelativeLayout
         android:id="@+id/no_payments_view"

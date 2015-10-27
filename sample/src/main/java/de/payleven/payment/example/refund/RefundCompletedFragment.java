@@ -4,6 +4,8 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,6 +27,7 @@ public class RefundCompletedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_refund_completed, container, false);
+        setUpActionBar();
 
         (view.findViewById(R.id.button_done)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +44,14 @@ public class RefundCompletedFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void setUpActionBar() {
+        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setTitle(getResources().getString(R.string.refund_title));
+        }
     }
 
     private void showReceipt() {

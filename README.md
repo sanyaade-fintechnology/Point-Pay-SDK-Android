@@ -5,13 +5,39 @@
 
 # payleven mPOS SDK
 
-This project provides an Android API to communicate with the payleven Chip & PIN card reader in order to accept debit and credit card payments. Since version 1.1.0 the project also provides an Android API for refund payments. Learn more about the Chip & PIN card reader and payment options on one of payleven's regional [websites](https://payleven.com/). If you have any further questions please contact us by sending an email to developer@payleven.com.
+This project provides an Android API to communicate with the payleven Chip & PIN card reader in order to accept debit and credit card payments. With version 1.1.0, the project also provides an Android API for refund payments. Learn more about the Chip & PIN card reader and payment options on one of payleven's regional [websites](https://payleven.com/). If you have any further questions please contact us by sending an email to developer@payleven.com.
 ### Prerequisites
-1. Register with [payleven](http://payleven.com) in order to get personal merchant credentials and a card reader.
-2. Request an API key in [payleven developers](https://service.payleven.com/uk/developer).
+1. Register at [payleven](http://payleven.com) in order to get personal merchant credentials and a card reader.
+2. Request an API key by registering at the [payleven developer page](https://service.payleven.com/uk/developer).
+
+### Table of Contents
+* [Installation](#installation)
+  * [Requirements](#requirements)
+  * [Repository](#repository)
+  * [Dependencies](#dependencies)
+  * [GSON](#gson)
+  * [Eclipse integration](#eclipse-integration)
+* [Usage](#usage)
+  * [Permissions](#permissions)
+  * [Services](#services)
+  * [Bluetooth pairing](#bluetooth-pairing)
+  * [Getting Started](#getting-started)
+    * [Authenticate your app](#authenticate-your-app)
+    * [Select the card reader](#select-the-card-reader)
+    * [Prepare card reader for payment](#prepare-card-reader-for-payment)
+    * [Handle payment](#handle-payment)
+    * [Example of a card reader chip payment](#example-of-a-card-reader-chip-payment)
+    * [Example of a card reader swipe payment](#example-of-a-card-reader-swipe-payment)
+    * [Refund payment](#refund-payment)
+  * [Documentation](#documentation)
+  * [mPOS Sample App](#mpos-sample-app)
 
 ### Installation
-##### Repository
+#### Requirements
+* **mPOS SDK**: Android API 14 or later.
+* **mPOS Sample App**: Android API 14 or later.
+
+#### Repository
 Include payleven repository to the list of build repositories:
 ###### Gradle
  ```groovy
@@ -33,7 +59,7 @@ Include payleven repository to the list of build repositories:
  </repositories>
  ```
   
-##### Dependencies
+#### Dependencies
 
 ###### Gradle
  ```groovy
@@ -67,7 +93,7 @@ Include payleven repository to the list of build repositories:
  ```
 
 
-##### GSON
+#### GSON
 When using payleven GSON library is also required:
 ###### Gradle
  ```groovy
@@ -82,7 +108,7 @@ When using payleven GSON library is also required:
    <version>2.3</version>
  </dependency>
  ```
-##### Eclipse integration
+#### Eclipse integration
 Though we strongly recommend using gradle and Android Studio, we also provided the sample for
 eclipse users.
 Before importing _sample_eclipse_ project into eclipse you must perform the following steps:
@@ -207,7 +233,7 @@ Initialize the actual payment request. For security purposes you must provide th
          public void onSignatureRequested(SignatureResponseHandler signatureHandler) {
                  //Provide signature image to SignatureResponseHandler
                  //This method is called when a bank card requires 
-                 //singnture verification instead of a pin
+                 //signature verification instead of a pin
          }
 
          @Override
@@ -218,11 +244,43 @@ Initialize the actual payment request. For security purposes you must provide th
    }
  ```
 
-##### How to make a refund payment
-Initialize the refund payment request.
+##### Example of a card reader chip payment
+```
+Pan = 7445
+PanMaximumLength = 16
+PanSequence = 00
+PosEntryMode = ICC
+CardBrandId = mastercard_mastercard
+CardBrandName = MasterCard
+Cvm = SIGNATURE
+Aid = A0000000041020
+AuthCode = 030720
+ExpiryYear = 2017
+ExpiryMonth = 3
+```
+
+##### Example of a card reader swipe payment
+```
+Pan = 7445
+PanMaximumLength = 16
+PosEntryMode = MAGNETIC_READER
+CardBrandId = mastercard_mastercard
+CardBrandName = MasterCard
+AuthCode = 010150
+ExpiryYear = 2017
+ExpiryMonth = 3
+```
+
+##### Refund payment
+Allows to refund a previous payment. Initialize the refund payment request and create a refund task.
+
+Please note that:
+- **paymentId**: Identifier of the initial payment which is to be refunded, called `generatedPaymentId` in the [Handle payment](#handle-payment) section.
+- **generatedRefundId**: Identifier of the refund payment.
 
  ```java
- private void doRefund(String paymentId, BigDecimal amount, Currency currency, String description) {
+ private void doRefund(String paymentId, BigDecimal amount, Currency currency,
+                                                    String description) {
      //Generated unique refund id
      String generatedRefundId = "unique_refund_id";
      RefundRequest request = new RefundRequest(generatedRefundId, paymentId, amount,
@@ -244,4 +302,7 @@ Initialize the refund payment request.
       
 #### Documentation
 [API Reference](http://payleven.github.io/mPOS-SDK-Android/1.1.0/javadoc/)
-      
+
+#### mPOS Sample App
+The mPOS SDK includes a sample app that shows how the SDK can be integrated. From this sample app is possible to choose a card reader, make payments and refund them. It contains as well a Signature View where the user can sign in case the transaction requires a signature.
+Note that the location is hardcoded and needs to be changed depending on the country the user is paying from.

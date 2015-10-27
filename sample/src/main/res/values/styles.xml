@@ -90,7 +90,7 @@
     </style>
 
     <style name="NumberPadButton">
-        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
@@ -103,14 +103,22 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="HomeIcon">
-        <item name="android:layout_gravity">center</item>
+    <style name="HomeItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">@dimen/home_icon_padding</item>
+        <item name="android:paddingLeft">@dimen/home_icon_padding</item>
+        <item name="android:paddingTop">@dimen/home_item_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/home_item_vertical_padding</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
-    <style name="HomeItem">
-        <item name="android:paddingTop">@dimen/default_margin_doubled</item>
-        <item name="android:paddingBottom">@dimen/default_margin_doubled</item>
-        <item name="android:background">?attr/selectableItemBackground</item>
+    <style name="HomeSeparator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/grey_separator</item>
+        <item name="android:layout_marginLeft">@dimen/left_margin_complete</item>
+        <item name="android:layout_marginStart">@dimen/left_margin_complete</item>
     </style>
 
 </resources>
