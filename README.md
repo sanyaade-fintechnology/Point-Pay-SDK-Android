@@ -5,10 +5,12 @@
 
 # payleven mPOS SDK
 
-This project provides an Android API to communicate with the payleven Chip & PIN card reader in order to accept debit and credit card payments. With version 1.1.0, the project also provides an Android API for refund payments. Learn more about the Chip & PIN card reader and payment options on one of payleven's regional [websites](https://payleven.com/). If you have any further questions please contact us by sending an email to developer@payleven.com.
+This project provides an Android API to communicate with the payleven Chip & PIN card reader in order to accept debit and credit card payments. Learn more about the Chip & PIN card reader and payment options on one of payleven's regional [websites](https://payleven.com/).
+The payleven mPOS SDK provides an API to process refund payments starting from version 1.1.0. Additionally, the SDK issues a receipt image of sale and refund payments that contains the bare minimum of receipt details. Please keep in mind to extend the image with the merchants name, address and a respective receipt ID. In case you wish to create your own receipt by using a set of raw payment data, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.
+
 ### Prerequisites
-1. Register at [payleven](http://payleven.com) in order to get personal merchant credentials and a card reader.
-2. Request an API key by registering at the [payleven developer page](https://service.payleven.com/uk/developer).
+1. Register on one of payleven's regional [websites](https://payleven.com/) in order to get personal merchant account and a card reader.
+2. Request an API key by registering at the [payleven developer page](https://service.payleven.com/uk/developer) for the mPOS SDK.
 
 ### Table of Contents
 * [Installation](#installation)
