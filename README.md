@@ -11,10 +11,10 @@ The payleven mPOS SDK provides an API to process refund payments starting from v
 ### Prerequisites
 1. Register on one of payleven's regional [websites](https://payleven.com/) in order to get personal merchant account and a card reader.
 2. Request an API key by registering at the [payleven developer page](https://service.payleven.com/uk/developer) for the mPOS SDK.
+3. System requirements: Android API 14 or later for both mPOS SDK and the mPOS Sample App.
 
 ### Table of Contents
 * [Installation](#installation)
-  * [Requirements](#requirements)
   * [Repository](#repository)
   * [Dependencies](#dependencies)
   * [GSON](#gson)
@@ -35,9 +35,6 @@ The payleven mPOS SDK provides an API to process refund payments starting from v
   * [mPOS Sample App](#mpos-sample-app)
 
 ### Installation
-#### Requirements
-* **mPOS SDK**: Android API 14 or later.
-* **mPOS Sample App**: Android API 14 or later.
 
 #### Repository
 Include payleven repository to the list of build repositories:
@@ -96,7 +93,7 @@ Include payleven repository to the list of build repositories:
 
 
 #### GSON
-When using payleven GSON library is also required:
+When using payleven, GSON library is also required:
 ###### Gradle
  ```groovy
  compile 'com.google.code.gson:gson:2.3'
