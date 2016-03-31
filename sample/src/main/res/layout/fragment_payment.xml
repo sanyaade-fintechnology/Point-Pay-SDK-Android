@@ -1,60 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
     <de.payleven.payment.example.view.AmountEntryView
         android:id="@+id/amount_entry_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/currency_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:textSize="16sp"
+        android:hint="@string/payment_currency_hint"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/pay_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/payment_button"/>
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/cancel_button"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="@string/payment_result_message"
+        />
+
+    <TextView
+        android:id="@+id/status_view"
+        android:autoLink="web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/payment_status_empty"
+        />
+
+    <ImageView
+        android:id="@+id/receipt_image_view"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="@dimen/amount_view_text_size"
-        android:layout_marginTop="@dimen/amount_view_vertical_margin"
-        android:layout_marginBottom="@dimen/amount_view_vertical_margin"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"/>
-
-    <View
-        android:id="@+id/amount_entry_view_separator"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey_separator"
-        android:layout_below="@id/amount_entry_view"/>
-
-    <de.payleven.payment.example.view.PaymentIdEntryView
-        android:id="@+id/external_id_entry_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_below="@+id/amount_entry_view_separator"
-        android:hint="@string/payment_id_hint"
-        android:drawable="@drawable/icn_generate"/>
-
-    <View
-        android:id="@+id/separator"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey_separator"
-        android:layout_below="@id/external_id_entry_view"/>
-
-    <de.payleven.payment.example.view.NumberPadView
-        android:id="@+id/number_pad"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/separator"
-        android:layout_above="@+id/pay_button"/>
-
-    <Button
-        android:id="@+id/pay_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/default_margin_doubled"
-        android:text="@string/payment_button"
-        android:enabled="false"
-        style="@style/DefaultButton"/>
-
-</RelativeLayout>
+        android:layout_gravity="center"/>
+</LinearLayout>

@@ -9,9 +9,22 @@
     android:orientation="vertical"
     tools:context="de.payleven.payment.example.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <EditText
+        android:id="@+id/username_field"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/login_username_hint"
         />
+    <EditText
+        android:id="@+id/password_field"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/login_password_hint"
+        />
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_button"/>
 </LinearLayout>
