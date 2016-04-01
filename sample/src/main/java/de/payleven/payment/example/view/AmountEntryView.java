@@ -1,89 +1,66 @@
 package de.payleven.payment.example.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.math.BigDecimal;
-import java.util.Currency;
-
-import de.payleven.payment.example.R;
+import java.math.RoundingMode;
 
 /**
- * Helper views to display amount entry field together with the currency.
+ * Helper view to display amount entry field together with the currency.
  */
-public class AmountEntryView extends LinearLayout {
-    private EditText mAmountField;
-    private TextView mCurrencyField;
-
-    public AmountEntryView(Context context) {
-        super(context);
-        setupViews(context);
-    }
+public class AmountEntryView extends AmountView {
+    //Number of digits after the decimal point
+    public static final int SCALE = 2;
+    private static final BigDecimal mMaxAmount = new BigDecimal("20000");
 
     public AmountEntryView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setupViews(context);
-    }
-
-    public AmountEntryView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        setupViews(context);
-    }
-
-    private void setupViews(Context context) {
-        setOrientation(HORIZONTAL);
-        LayoutInflater inflater = LayoutInflater.from(context);
-        inflater.inflate(R.layout.view_amount, this);
-        mAmountField = (EditText) findViewById(R.id.amount_entry_amount_field);
-        mCurrencyField = (TextView) findViewById(R.id.amount_entry_currency_field);
-    }
-
-    public void setAmount(@NonNull BigDecimal bigDecimal) {
-        mAmountField.setText(bigDecimal.toPlainString());
-    }
-
-    public void clearAmount() {
-        mAmountField.setText("");
-    }
-
-    public void clearCurrency() {
-        mCurrencyField.setText("");
     }
 
     /**
-     * Returns parsed amount or null if no amount was entered.
-     *
-     * @throws NumberFormatException if entered string doesn't represent a decimal number
+     * Updates total amount when a number is introduced or deleted
      */
-    @Nullable
-    public BigDecimal getAmount() throws NumberFormatException {
-        String amountString = mAmountField.getText().toString();
-        if(amountString == null || amountString.isEmpty()){
-            return null;
+    public void updateAmount(String value) {
+        BigDecimal currentAmount = getAmount();
+        final BigDecimal newAmount;
+        if (value == null) {
+            newAmount = removeLastCharacter(currentAmount);
+        } else {
+            newAmount = addNewCharacter(currentAmount, value);
         }
-        return parseInputAmount(amountString);
+        if (newAmount.compareTo(mMaxAmount) == -1) {
+            setAmount(newAmount);
+        }
     }
 
-    public void setCurrency(@NonNull Currency currency) {
-        mCurrencyField.setText(currency.getSymbol());
+    /**
+     * Remove value from the total amount if possible
+     * @param amount total amount
+     * @return total amount without last number
+     */
+    private BigDecimal removeLastCharacter(BigDecimal amount) {
+        return amount.divide(new BigDecimal(10), SCALE, BigDecimal.ROUND_DOWN);
     }
 
-    private BigDecimal parseInputAmount(@NonNull String amountString) throws NumberFormatException {
-        //BigDecimal can be created only from a string with '.' as a delimiter
-        amountString = amountString.replace(',', '.');
-        //Check amount has not more than 2 decimal places
-        int delimiterIndex = amountString.indexOf(".");
-        int decimalPlaces = delimiterIndex > 0 ? amountString.length() - delimiterIndex - 1 : 0;
-        if (decimalPlaces > 2) {
-            throw new NumberFormatException("Number of decimal places can not be more than 2");
-        }
+    /**
+     * Add new entered value to current total amount if possible
+     * @param amount current total amount
+     * @param value to add
+     * @return new total amount
+     */
+    private BigDecimal addNewCharacter(BigDecimal amount, String value) {
+        BigDecimal newValue = new BigDecimal(value);
+        newValue = newValue.setScale(2, RoundingMode.DOWN);
+        newValue = newValue.divide(new BigDecimal(100), SCALE, BigDecimal.ROUND_DOWN);
 
-        return new BigDecimal(amountString);
+        if (amount.compareTo(BigDecimal.ZERO) == 0) {
+            return amount.add(newValue);
+        } else {
+            for (int i = 0; i < value.length(); i++) {
+                amount = amount.multiply(new BigDecimal(10));
+            }
+            return amount.add(newValue);
+        }
     }
 }
