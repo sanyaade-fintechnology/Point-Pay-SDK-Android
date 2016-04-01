@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <de.payleven.payment.example.view.PaymentStateView
+        android:id="@+id/payment_state_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button_show_receipt"
+        />
+
+    <Button
+        android:id="@+id/button_show_receipt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_done"
+        android:text="@string/show_receipt_button"
+        android:layout_marginBottom="@dimen/default_margin"
+        style="@style/WhiteButton"/>
+
+    <Button
+        android:id="@+id/button_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/done"
+        style="@style/DefaultButton"/>
+
+</RelativeLayout>
