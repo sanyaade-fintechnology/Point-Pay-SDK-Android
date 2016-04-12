@@ -5,12 +5,12 @@
 
 # payleven mPOS SDK
 
-This project provides an Android API to communicate with the payleven Classic (Chip & PIN) and Plus (NFC) card reader in order to accept debit and credit card payments. Learn more aon one of payleven's country [websites](https://payleven.com/).
-The payleven mPOS SDK also provides an API to process refund payments (from version 1.1.0). Additionally, the SDK issues a receipt image of sale and refund payments that contains the bare minimum of receipt details. Please remember to extend the image with the merchants name, address and a respective receipt ID. If you wish to create your own receipt by using a set of raw payment data, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.
+This project enables an Android API to communicate with the payleven Classic (Chip & PIN) and Plus (NFC) card reader to accept debit and credit card payments. Learn more about the card readers one of payleven's country [websites](https://payleven.com/).
+The payleven mPOS SDK provides an API to process refund payments (from version 1.1.0 onwards). Additionally, the SDK issues a receipt image of both sale and refund payments that contain the bare minimum of receipt details. Please remember to extend the image with the merchants name, address and a respective receipt ID. If you wish to create your own receipt by using a set of raw payment data, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.
 
 ### Prerequisites
-1. Register on one of payleven's regional [websites](https://payleven.com/) in order to get personal merchant account and a card reader.
-2. Request an API key by registering at the [payleven developer page](https://service.payleven.com/uk/developer) for the mPOS SDK.
+1. Register on one of payleven's country [websites](https://payleven.com/) to get a merchant account and a card reader.
+2. Request an API key by registering for the mPOS SDK on the [payleven developer page](https://service.payleven.com/uk/developer).
 3. System requirements: Android API 14 or later for both mPOS SDK and the mPOS Sample App.
 4. A payleven card reader, Classic or Plus.
 
@@ -34,7 +34,7 @@ The payleven mPOS SDK also provides an API to process refund payments (from vers
   * [Start refund](#start-refund)
   * [Handle refund](#handle-refund)
 * [Documentation](#documentation)
-* [mPOS Sample App](#mpos-sample-app)
+* [mPOS SDK Sample App](#mpos-sdk-sample-app)
 
 ### Installation
 
@@ -153,7 +153,7 @@ Also the following services and receivers must be added to the same AndroidManif
 
 ### Getting started
 #### Login
- To fetch connected devices, start or refund a pyment you must be logged into payleven SDK. Use the API key received on the payleven developers portal together with the merchant credentials (email address & password) to authenticate your app and get an instance of `Payleven` object. Check out our Sample Integration to see how easily you can observe the Login state.
+ To fetch connected devices, start or refund a payment you must be logged into payleven SDK. Use the API key received from payleven, together with your payleven merchant account (email address & password) to authenticate your app and get an instance of `Payleven` object. Check out our Sample Integration to see how easily you can observe the Login state.
  ```java
  public class MainActivity extends Activity {
   private Payleven mPaylevenApi;
@@ -183,12 +183,12 @@ Also the following services and receivers must be added to the same AndroidManif
 #### Bluetooth pairing
 Before proceeding with the integration and testing, make sure you have paired the card reader in the bluetooth settings on your Android device.
  1. Make sure the device is charged and turned on.
- 2. Press '0' key on the card reader for 5 sec and make sure the card reader has entered the pairing mode (there will be a corresponding sign on the screen).
+ 2. Press '0' key on the card reader for 5 seconds and check that the card reader has entered the pairing mode (there will be a corresponding sign on the screen).
  3. Go to the bluetooth settings of your Android device and turn on the 'device scanning' mode.
  4. Select the "discovered" payleven card reader and follow the instructions on both devices to finish the pairing process.
  
 #### Select a device
-Once `Payleven` instance is created you need to select the card reader for your future payments:
+Once `Payleven` instance is created you need to select the card reader to process payments:
 
  ```java
  List<PairedDevice> devices = mPaylevenApi.getPairedDevices()
@@ -199,7 +199,7 @@ Once `Payleven` instance is created you need to select the card reader for your 
  ```
 
 #### Prepare device for payment
-After a device is selected it needs to be prepared to accept payments. We will run all required preparations and security checks for you. All you have to do is outlined below. Also, before triggering a new payment you should always get the prepared device from the successful callback "onDone".
+After a device is selected it needs to be prepared to accept payments. We will run all required preparations and security checks for you. All you have to do is outlined below. Before triggering a new payment you should always get the prepared device from the successful callback "onDone".
  ```java
  private void prepareDevice(PairedDevice pairedDevice) {
      mPaylevenApi.prepareDevice(pairedDevice, new DevicePreparationListener() {
@@ -235,7 +235,7 @@ Initialize the actual payment request. For security purposes you must provide th
  ```
 
 #### Handle payment
-From v1.2.0 a new callback `onPaymentProgressStateChanged` is provided. This callback sends the different payment progress states during a payment. The payment progress state may also be obtained from the `PaymentTask` instance. E.g. `paymentTask.getPaymentProgressState()`.
+From v1.2.0 a new callback `onPaymentProgressStateChanged` is provided. This callback sends different payment progress states during a payment. The payment progress state may also be obtained from the `PaymentTask` instance. E.g. `paymentTask.getPaymentProgressState()`.
 
  ```java
  private void handlePayment(PaymentRequest paymentRequest, Device device) {
@@ -266,7 +266,7 @@ From v1.2.0 a new callback `onPaymentProgressStateChanged` is provided. This cal
    }
  ```
  
- Optionally, you can offer a more comprehensive user experience by reading the payment progress states.
+ Optionally, you can offer a more comprehensive user experience by reading the following payment progress states.
   ```java
   @Override
   public void onPaymentProgressStateChanged(PaymentProgressState paymentProgressState) {
@@ -317,14 +317,14 @@ From v1.2.0 a new callback `onPaymentProgressStateChanged` is provided. This cal
  
 
 ### Refund
-You can refund a payment conducted via the mPOS SDK completely or partially, meaning you are able to refund less than the full amount.
+You can refund a payment conducted via the mPOS SDK partially or in full.
 
 #### Start refund
 Initialize the refund payment request and create a refund task. For a refund you need:
 
-- **paymentId**: String specifying the original sale payment's ID that is supposed to be refunded. In the [Start payment](#start-payment) section, it is called "generatedPaymentId".
+- **paymentId**: String to specify the original sale payment's ID that is supposed to be refunded. In the [Start payment](#start-payment) section, it is called "generatedPaymentId".
 - **generatedRefundId**: String to uniquely specify the refund.
-- **amount**: Decimal number indicating the amount to be refunded, cannot be higher than the original payment's amount.
+- **amount**: Decimal number indicating the amount to be refunded, which cannot be higher than the original payment's amount.
 - **currency**: 3 letter ISO character (e.g. EUR) that is identical with the original sale payment's currency.
 
  ```java
@@ -338,7 +338,7 @@ Initialize the refund payment request and create a refund task. For a refund you
  ```
  
 #### Handle refund
-Once the refund request is initialized, trigger the refund.
+Once the refund request is initialized, trigger the refund as outlined below.
  ```java
  private void handleRefund(RefundRequest refundRequest) {
      RefundTask refundTask = mPaylevenApi.createRefundTask(refundRequest);
@@ -359,6 +359,6 @@ Once the refund request is initialized, trigger the refund.
 ### Documentation
 [API Reference](http://payleven.github.io/mPOS-SDK-Android/1.2.0/javadoc/)
 
-### mPOS Sample App
-The mPOS SDK includes a sample app illustrating how the SDK can be integrated. Within this sample app is possible to choose a card reader, make payments and refund them. It also contains a Signature View where the user can sign in case the payment requires a signature.
+### mPOS SDK Sample App
+The mPOS SDK includes a sample app illustrating how the SDK can be integrated. Within this sample app is possible to select a card reader, make payments and refund them. It also contains a Signature View where the user can sign in case the payment requires a signature.
 Please note that the location is hardcoded and needs to be changed depending on the country the user is conducting the payment.
