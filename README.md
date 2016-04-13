@@ -39,7 +39,8 @@ The payleven mPOS SDK provides an API to process refund payments (from version 1
 ### Installation
 
 #### Repository
-Include payleven repository to the list of build repositories in Gradle or Maven, depending on the build environment you work with.
+Depending on your chosen build environment, ensure to include the payleven repository to the list of build repositories in either Gradle or Maven.
+
 ###### Gradle
 In the module's gradle.build file:
  ```groovy
@@ -62,7 +63,7 @@ In the module's gradle.build file:
  ```
   
 #### Dependencies
-Include the following dependencies from payleven repository in Gradle or Maven depending on the build environment you work with.
+Depending on your chosen build environment, ensure to include the following dependencies from the payleven repository in either Gradle or Maven.
 
 ###### Gradle
 In the module's gradle.build file, inside the dependencies section:
@@ -116,9 +117,9 @@ In the project pom.xml file:
  </dependency>
  ```
 #### Eclipse integration
-Though we strongly recommend using Gradle and Android Studio, we also provided the sample for
+Though we strongly recommend using Gradle and Android Studio, we have also provided a sample for
 Eclipse users.
-Before importing _sample_eclipse_ project into Eclipse you must perform the following steps:
+Before importing _sample_eclipse_ project into Eclipse, you must perform the following steps:
  1. Download latest GSON library from http://mvnrepository.com/artifact/com.google.code.gson/gson and copy it into _sample_eclipse/sample/libs_ folder.
  2. Download latest Payleven mPOS SDK from https://download.payleven.de/maven/de/payleven/payment/mpos and copy it into _sample_eclipse/sample/libs_ folder.
  3. Download Payleven PSP library from https://download.payleven.de/maven/de/payleven/psp-library-core and copy it into _sample_eclipse/psp-library/libs_ folder
@@ -133,7 +134,7 @@ Add the following permissions to the AndroidManifest.xml file to be able to pay 
   ```
     
 #### Services
-Also the following services and receivers must be added to the same AndroidManifest.xml file: 
+The following services and receivers must also be added to the same AndroidManifest.xml file: 
  ```xml
  <service android:name="de.payleven.payment.PaylevenCommunicationService"
      android:exported="false"
@@ -235,7 +236,7 @@ Initialize the actual payment request. For security purposes you must provide th
  ```
 
 #### Handle payment
-From v1.2.0 a new callback `onPaymentProgressStateChanged` is provided. This callback sends different payment progress states during a payment. The payment progress state may also be obtained from the `PaymentTask` instance. E.g. `paymentTask.getPaymentProgressState()`.
+From mPOS SDK v1.2.0 a new callback `onPaymentProgressStateChanged` is provided. This callback sends different payment progress states during a payment. The payment progress state may also be obtained from the `PaymentTask` instance. E.g. `paymentTask.getPaymentProgressState()`.
 
  ```java
  private void handlePayment(PaymentRequest paymentRequest, Device device) {
@@ -325,7 +326,7 @@ Initialize the refund payment request and create a refund task. For a refund you
 - **paymentId**: String to specify the original sale payment's ID that is supposed to be refunded. In the [Start payment](#start-payment) section, it is called "generatedPaymentId".
 - **generatedRefundId**: String to uniquely specify the refund.
 - **amount**: Decimal number indicating the amount to be refunded, which cannot be higher than the original payment's amount.
-- **currency**: 3 letter ISO character (e.g. EUR) that is identical with the original sale payment's currency.
+- **currency**: 3 letter ISO character (e.g. EUR) that is identical to the original sale payment's currency.
 
  ```java
  private RefundRequest startRefund(String paymentId, BigDecimal amount, Currency currency,
