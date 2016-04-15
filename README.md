@@ -33,6 +33,7 @@ From version 1.1.0 onwards, the payleven mPOS SDK provides an API to process ful
 * [Refund](#refund)
   * [Start refund](#start-refund)
   * [Handle refund](#handle-refund)
+* [Receipts](#receipts)
 * [Documentation](#documentation)
 * [mPOS SDK Sample App](#mpos-sdk-sample-app)
 
@@ -359,19 +360,19 @@ Once the refund request is initialized, trigger the refund as outlined below.
 ### Receipts
 The SDK issues a receipt image of sale and refund payments that contains the bare minimum of receipt details. Please keep in mind to extend the image with the merchants name, address and a respective receipt ID. In case you wish to create your own receipt by using a set of raw payment data, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.
  -
- -```java
- -private Bitmap generateReceipt(PaymentResult paymentResult, int width, int textSize,
- -                              int lineSpacing) {
- -   //Create a configuration for the receipt image.
- -   ReceiptConfig receiptConfig = new ReceiptConfig.Builder(width, textSize)
- -           .setLineSpacing(lineSpacing)
- -           .build();
- -
- -   //Generate the receipt with ReceiptGenerator and the previous configuration.
- -   ReceiptGenerator generator = paymentResult.getReceiptGenerator();
- -   return generator.generateReceipt(receiptConfig);
- -}
- - ```
+ ```java
+ private Bitmap generateReceipt(PaymentResult paymentResult, int width, int textSize,
+                               int lineSpacing) {
+    //Create a configuration for the receipt image.
+    ReceiptConfig receiptConfig = new ReceiptConfig.Builder(width, textSize)
+            .setLineSpacing(lineSpacing)
+            .build();
+ 
+    //Generate the receipt with ReceiptGenerator and the previous configuration.
+    ReceiptGenerator generator = paymentResult.getReceiptGenerator();
+    return generator.generateReceipt(receiptConfig);
+ }
+  ```
       
 ### Documentation
 [API Reference](http://payleven.github.io/mPOS-SDK-Android/1.2.0/javadoc/)
