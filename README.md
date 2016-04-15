@@ -359,7 +359,7 @@ Once the refund request is initialized, trigger the refund as outlined below.
  ```
 ### Receipts
 The SDK issues a receipt image of sale and refund payments that contains the bare minimum of receipt details. Please keep in mind to extend the image with the merchants name, address and a respective receipt ID. In case you wish to create your own receipt by using a set of raw payment data, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.
- -
+
  ```java
  private Bitmap generateReceipt(PaymentResult paymentResult, int width, int textSize,
                                int lineSpacing) {
