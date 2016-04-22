@@ -10,9 +10,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
@@ -31,8 +33,8 @@ import de.payleven.payment.example.SampleApplication;
 import de.payleven.payment.example.commons.AmountString;
 import de.payleven.payment.example.commons.ReceiptConfigUtil;
 import de.payleven.payment.example.login.PaylevenProvider;
-import de.payleven.payment.example.view.LoadingView;
 import de.payleven.payment.example.view.PaymentStateView;
+import de.payleven.payment.tools.PaylevenTools;
 
 /**
  * During the payment process a loading screen will be displayed, and if necessary,
@@ -53,8 +55,9 @@ public class PaymentProcessingFragment extends Fragment implements PaymentProces
     private DefaultDeviceProvider mDefaultDeviceProvider;
     private PaymentRepository mPaymentRepository;
 
-    private LoadingView mProgressView;
+    private RelativeLayout mPaymentProgressStateView;
     private View mPaymentProgressView;
+    private TextView mPaymentSate;
 
     private FragmentInteractionListener mFragmentInteractionListener;
 
@@ -156,15 +159,62 @@ public class PaymentProcessingFragment extends Fragment implements PaymentProces
         enableBackNavigation();
     }
 
+    /**
+     * Read payment progress state and display its respective animation/image.
+     */
     @Override
     public void onPaymentProgressStateChanged(PaymentProgressState paymentProgressState) {
-        mProgressView.setText(getString(R.string.payment_in_progress)
-                + "\n" + paymentProgressState.name());
+        Log.i("PaymentProgressState", paymentProgressState.name());
+        PaylevenTools.showPaymentProgressAnimation(
+                getActivity(),
+                mPaymentProgressStateView,
+                paymentProgressState.name());
+
+        String paymentState = null;
+
+        switch (paymentProgressState) {
+            case STARTED:
+                paymentState = getString(R.string.payment_started);
+                break;
+            case REQUEST_PRESENT_CARD:
+                paymentState = getString(R.string.present_card);
+                break;
+            case REQUEST_INSERT_CARD:
+                paymentState = getString(R.string.insert_card);
+                break;
+            case CARD_INSERTED:
+                paymentState = getString(R.string.card_inserted);
+                break;
+            case REQUEST_ENTER_PIN:
+                paymentState = getString(R.string.enter_pin);
+                break;
+            case PIN_ENTERED:
+                paymentState = getString(R.string.pin_entered);
+                break;
+            case CONTACTLESS_BEEP_OK:
+                paymentState = getString(R.string.beep_ok);
+                break;
+            case CONTACTLESS_BEEP_FAILED:
+                paymentState = getString(R.string.beep_failed);
+                break;
+            case REQUEST_SWIPE_CARD:
+                paymentState = getString(R.string.swipe_card);
+                break;
+            case NONE:
+                paymentState = getString(R.string.none);
+                break;
+            default:
+                break;
+        }
+
+        mPaymentSate.setText(paymentState);
     }
 
     private void startPayment(final String paymentId,
                               final BigDecimal amount,
                               final Currency currency) {
+        PaylevenTools.showDevicePreparation(getActivity(), mPaymentProgressStateView);
+
         mPaylevenProvider.getPayleven(new PaylevenProvider.DoneCallback() {
             @Override
             public void onDone(@NonNull Payleven payleven) {
@@ -238,8 +288,10 @@ public class PaymentProcessingFragment extends Fragment implements PaymentProces
     }
 
     private void setupProgressView(View view) {
-        mProgressView = (LoadingView) view.findViewById(R.id.payment_process_loader);
-        mProgressView.setText(getString(R.string.payment_in_progress));
+        mPaymentProgressStateView = (RelativeLayout)
+                view.findViewById(R.id.payment_progress_state_view);
+        mPaymentSate = (TextView) view.findViewById(R.id.payment_state_text);
+        mPaymentSate.setText(getString(R.string.payment_in_progress));
     }
 
     private void enableBackNavigation() {
@@ -259,7 +311,7 @@ public class PaymentProcessingFragment extends Fragment implements PaymentProces
 
     private void cancelPayment() {
         mPaymentProcessor.cancel();
-        mProgressView.setText(getString(R.string.payment_cancelling_message));
+        mPaymentSate.setText(getString(R.string.payment_cancelling_message));
         hideCancelButton();
     }
 

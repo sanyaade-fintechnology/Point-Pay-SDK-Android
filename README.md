@@ -1,17 +1,20 @@
 [![Platform](https://img.shields.io/badge/Platform-Android-brightgreen.svg?style=flat-square)]()
-[![Version](https://img.shields.io/badge/version-1.2.0-brightgreen.svg?style=flat-square)]()
+[![Version](https://img.shields.io/badge/version-1.2.1-brightgreen.svg?style=flat-square)]()
 [![API](https://img.shields.io/badge/API-14%2B-orange.svg?style=flat-square)]()
 [![Berlin](https://img.shields.io/badge/Made%20in-Berlin-red.svg?style=flat-square)]()
 
-# payleven mPOS SDK
+# payleven Point Pay SDK
 
 This project enables an Android API to communicate with the payleven Classic (Chip & PIN) and Plus (NFC) card reader to accept debit and credit card payments. Learn more about the card readers on one of payleven's country [websites](https://payleven.com/).
-From version 1.1.0 onwards, the payleven mPOS SDK provides an API to process full and partial refunds. Additionally, the SDK issues a receipt image of both sale and refund payments that contain the bare minimum of receipt details. If you have any questions or require further assistance, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.
+From version 1.1.0 onwards, the payleven Point Pay SDK provides an API to process full and partial refunds. Additionally, the SDK issues a receipt image of both sale and refund payments that contain the bare minimum of receipt details. If you have any questions or require further assistance, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.
+
+> Note: 
+> The product has been renamed to payleven Point Pay SDK from mPOS SDK. Any references within the documentation or classes are relevant to payleven Point Pay SDK.
 
 ### Prerequisites
 1. Register on one of payleven's country [websites](https://payleven.com/) to get a merchant account and a card reader.
-2. Request an API key by registering for the mPOS SDK on the [payleven developer page](https://service.payleven.com/uk/developer).
-3. System requirements: Android API 14 or later for both mPOS SDK and the mPOS Sample App.
+2. Request an API key by registering for the Point Pay SDK on the [payleven developer page](https://service.payleven.com/uk/developer).
+3. System requirements: Android API 14 or later for both Point Pay SDK and the Point Pay Sample App.
 4. A payleven card reader, Classic or Plus.
 
 ### Table of Contents
@@ -35,13 +38,12 @@ From version 1.1.0 onwards, the payleven mPOS SDK provides an API to process ful
   * [Handle refund](#handle-refund)
 * [Receipts](#receipts)
 * [Documentation](#documentation)
-* [mPOS SDK Sample App](#mpos-sdk-sample-app)
+* [Point Pay SDK Sample App](#point-pay-sdk-sample-app)
 
 ### Installation
 
 #### Repository
-Depending on your chosen build environment, ensure to include the payleven repository to the list of build repositories in either Gradle or Maven.
-
+Include payleven repository to the list of build repositories in Gradle or Maven, depending on the build environment you work with.
 ###### Gradle
 In the module's gradle.build file:
  ```groovy
@@ -64,13 +66,13 @@ In the module's gradle.build file:
  ```
   
 #### Dependencies
-Depending on your chosen build environment, ensure to include the following dependencies from the payleven repository in either Gradle or Maven.
+Include the following dependencies from payleven repository in Gradle or Maven depending on the build environment you work with.
 
 ###### Gradle
 In the module's gradle.build file, inside the dependencies section:
  ```groovy
  //Use the specific library version here
- compile 'de.payleven.payment:mpos:1.2.0@jar'
+ compile 'de.payleven.payment:mpos:1.2.1@jar'
  //These are helper payleven libraries.
  compile 'de.payleven:psp-library:1.2.0@aar'
  compile 'de.payleven:psp-library-core:1.2.0'
@@ -82,7 +84,7 @@ In the project pom.xml file:
  <dependency>
    <groupId>de.payleven.payment</groupId>
    <artifactId>mpos</artifactId>
-   <version>1.2.0</version>
+   <version>1.2.1</version>
    <type>aar</type>
  </dependency>
  <dependency>
@@ -118,11 +120,11 @@ In the project pom.xml file:
  </dependency>
  ```
 #### Eclipse integration
-Though we strongly recommend using Gradle and Android Studio, we have also provided a sample for
+Though we strongly recommend using Gradle and Android Studio, we also provided the sample for
 Eclipse users.
-Before importing _sample_eclipse_ project into Eclipse, you must perform the following steps:
+Before importing _sample_eclipse_ project into Eclipse you must perform the following steps:
  1. Download latest GSON library from http://mvnrepository.com/artifact/com.google.code.gson/gson and copy it into _sample_eclipse/sample/libs_ folder.
- 2. Download latest Payleven mPOS SDK from https://download.payleven.de/maven/de/payleven/payment/mpos and copy it into _sample_eclipse/sample/libs_ folder.
+ 2. Download latest payleven Point Pay SDK from https://download.payleven.de/maven/de/payleven/payment/mpos and copy it into _sample_eclipse/sample/libs_ folder.
  3. Download Payleven PSP library from https://download.payleven.de/maven/de/payleven/psp-library-core and copy it into _sample_eclipse/psp-library/libs_ folder
 
 #### Permissions
@@ -135,7 +137,7 @@ Add the following permissions to the AndroidManifest.xml file to be able to pay 
   ```
     
 #### Services
-The following services and receivers must also be added to the same AndroidManifest.xml file: 
+Also the following services and receivers must be added to the same AndroidManifest.xml file: 
  ```xml
  <service android:name="de.payleven.payment.PaylevenCommunicationService"
      android:exported="false"
@@ -237,7 +239,7 @@ Initialize the actual payment request. For security purposes you must provide th
  ```
 
 #### Handle payment
-From mPOS SDK v1.2.0 a new callback `onPaymentProgressStateChanged` is provided. This callback sends different payment progress states during a payment. The payment progress state may also be obtained from the `PaymentTask` instance. E.g. `paymentTask.getPaymentProgressState()`.
+From v1.2.0 a new callback `onPaymentProgressStateChanged` is provided. This callback sends different payment progress states during a payment. The payment progress state may also be obtained from the `PaymentTask` instance. E.g. `paymentTask.getPaymentProgressState()`.
 
  ```java
  private void handlePayment(PaymentRequest paymentRequest, Device device) {
@@ -276,40 +278,34 @@ From mPOS SDK v1.2.0 a new callback `onPaymentProgressStateChanged` is provided.
       
       switch (paymentProgressState) {
             case STARTED:
-                state = getString(R.string.payment_started);
+                paymentState = getString(R.string.payment_started);
                 break;
             case REQUEST_PRESENT_CARD:
-                state = getString(R.string.present_card);
+                paymentState = getString(R.string.present_card);
                 break;
             case REQUEST_INSERT_CARD:
-                state = getString(R.string.insert_card);
+                paymentState = getString(R.string.insert_card);
                 break;
             case CARD_INSERTED:
-                state = getString(R.string.card_inserted);
+                paymentState = getString(R.string.card_inserted);
                 break;
             case REQUEST_ENTER_PIN:
-                state = getString(R.string.enter_pin);
+                paymentState = getString(R.string.enter_pin);
                 break;
             case PIN_ENTERED:
-                state = getString(R.string.pin_entered);
+                paymentState = getString(R.string.pin_entered);
                 break;
             case CONTACTLESS_BEEP_OK:
-                state = getString(R.string.beep_ok);
+                paymentState = getString(R.string.beep_ok);
                 break;
             case CONTACTLESS_BEEP_FAILED:
-                state = getString(R.string.beep_failed);
+                paymentState = getString(R.string.beep_failed);
                 break;
             case REQUEST_SWIPE_CARD:
-                state = getString(R.string.swipe_card);
-                break;
-            case FINISHED:
-                state = getString(R.string.payment_finished);
-                break;
-            case REQUEST_ENTER_PIN:
-                state = getString(R.string.enter_pin);
+                paymentState = getString(R.string.swipe_card);
                 break;
             case NONE:
-                state = getString(R.string.none);
+                paymentState = getString(R.string.none);
                 break;
             default:
                 break;
@@ -319,7 +315,7 @@ From mPOS SDK v1.2.0 a new callback `onPaymentProgressStateChanged` is provided.
  
 
 ### Refund
-You can refund a payment conducted via the mPOS SDK partially or in full.
+You can refund a payment conducted via the Point Pay SDK partially or in full.
 
 #### Start refund
 Initialize the refund payment request and create a refund task. For a refund you need:
@@ -327,7 +323,7 @@ Initialize the refund payment request and create a refund task. For a refund you
 - **paymentId**: String to specify the original sale payment's ID that is supposed to be refunded. In the [Start payment](#start-payment) section, it is called "generatedPaymentId".
 - **generatedRefundId**: String to uniquely specify the refund.
 - **amount**: Decimal number indicating the amount to be refunded, which cannot be higher than the original payment's amount.
-- **currency**: 3 letter ISO character (e.g. EUR) that is identical to the original sale payment's currency.
+- **currency**: 3 letter ISO character (e.g. EUR) that is identical with the original sale payment's currency.
 
  ```java
  private RefundRequest startRefund(String paymentId, BigDecimal amount, Currency currency,
@@ -357,26 +353,27 @@ Once the refund request is initialized, trigger the refund as outlined below.
      });
    }
  ```
-### Receipts
-The SDK issues a receipt image of sale and refund payments that contains the bare minimum of receipt details. Please keep in mind to extend the image with the merchants name, address and a respective receipt ID. In case you wish to create your own receipt by using a set of raw payment data, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.
-
- ```java
- private Bitmap generateReceipt(PaymentResult paymentResult, int width, int textSize,
-                               int lineSpacing) {
-    //Create a configuration for the receipt image.
-    ReceiptConfig receiptConfig = new ReceiptConfig.Builder(width, textSize)
-            .setLineSpacing(lineSpacing)
-            .build();
  
-    //Generate the receipt with ReceiptGenerator and the previous configuration.
-    ReceiptGenerator generator = paymentResult.getReceiptGenerator();
-    return generator.generateReceipt(receiptConfig);
- }
-  ```
+### Receipts		
+Additionally, the SDK issues a receipt image of sale and refund payments that contains the bare minimum of receipt details. Please keep in mind to extend the image with the merchants name, address and a respective receipt ID. In case you wish to create your own receipt by using a set of raw payment data, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.		
+		
+```java		
+private Bitmap generateReceipt(PaymentResult paymentResult, int width, int textSize,		
+                              int lineSpacing) {		
+   //Create a configuration for the receipt image.		
+   ReceiptConfig receiptConfig = new ReceiptConfig.Builder(width, textSize)		
+           .setLineSpacing(lineSpacing)		
+           .build();		
+		
+   //Generate the receipt with ReceiptGenerator and the previous configuration.		
+   ReceiptGenerator generator = paymentResult.getReceiptGenerator();		
+   return generator.generateReceipt(receiptConfig);		
+}		
+```
       
 ### Documentation
-[API Reference](http://payleven.github.io/mPOS-SDK-Android/1.2.0/javadoc/)
+[API Reference](http://payleven.github.io/mPOS-SDK-Android/1.2.1/javadoc/)
 
-### mPOS SDK Sample App
-The mPOS SDK includes a sample app illustrating how the SDK can be integrated. Within this sample app is possible to select a card reader, make payments and refund them. It also contains a Signature View where the user can sign in case the payment requires a signature.
+### Point Pay SDK Sample App
+The Point Pay SDK includes a sample app illustrating how the SDK can be integrated. Within this sample app is possible to select a card reader, make payments and refund them. It also contains a Signature View where the user can sign in case the payment requires a signature.
 Please note that the location is hardcoded and needs to be changed depending on the country the user is conducting the payment.

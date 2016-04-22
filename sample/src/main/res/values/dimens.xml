@@ -17,4 +17,5 @@
     <dimen name="left_margin_complete">64dp</dimen>
     <dimen name="home_icon_padding">20dp</dimen>
     <dimen name="home_item_vertical_padding">16dp</dimen>
+    <dimen name="payment_state_top_margin">40dp</dimen>
 </resources>

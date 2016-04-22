@@ -2,7 +2,6 @@ package de.payleven.payment.example.refund;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,8 +18,6 @@ import java.math.BigDecimal;
 import java.util.Currency;
 
 import de.payleven.payment.Payleven;
-import de.payleven.payment.PaymentResult;
-import de.payleven.payment.PaymentState;
 import de.payleven.payment.ReceiptConfig;
 import de.payleven.payment.ReceiptGenerator;
 import de.payleven.payment.RefundResult;
@@ -28,11 +25,8 @@ import de.payleven.payment.example.R;
 import de.payleven.payment.example.SampleApplication;
 import de.payleven.payment.example.commons.ReceiptConfigUtil;
 import de.payleven.payment.example.login.PaylevenProvider;
-import de.payleven.payment.example.payment.FragmentInteractionListener;
 import de.payleven.payment.example.payment.ImageCache;
-import de.payleven.payment.example.payment.PaymentProcessor;
 import de.payleven.payment.example.payment.PaymentRepository;
-import de.payleven.payment.example.payment.SignatureActivity;
 import de.payleven.payment.example.view.LoadingView;
 
 /**
@@ -78,7 +72,7 @@ public class RefundProcessingFragment extends Fragment implements RefundProcessi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.fragment_payment_process, container, false);
+        View view = inflater.inflate(R.layout.fragment_refund_process, container, false);
 
         setUpActionBar();
 

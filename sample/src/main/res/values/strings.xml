@@ -83,4 +83,14 @@
     <string name="no_refundable_payments">No refundable payments available</string>
     <string name="switch_to_manual_entry">Please switch to Manual entry mode</string>
     <string name="refundable_payments">Refundable Payments</string>
+    <string name="payment_started">Payment Started</string>
+    <string name="present_card">Present Card</string>
+    <string name="insert_card">Insert Card</string>
+    <string name="card_inserted">Card Inserted</string>
+    <string name="enter_pin">Enter Pin</string>
+    <string name="pin_entered">Pin Entered</string>
+    <string name="beep_ok">Beep Successful</string>
+    <string name="beep_failed">Beep Failed</string>
+    <string name="swipe_card">Swipe Card</string>
+    <string name="none">Payment has not started</string>
 </resources>

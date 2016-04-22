@@ -143,8 +143,10 @@ public class PaymentHistoryActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
             SalePayment payment = (SalePayment) adapterView.getItemAtPosition(position);
-            showRefundActivityPopulated(payment.getId(), payment.getAmount(),
-                    payment.getCurrency());
+            if (payment != null) {
+                showRefundActivityPopulated(payment.getId(), payment.getAmount(),
+                        payment.getCurrency());
+            }
         }
     }
 
