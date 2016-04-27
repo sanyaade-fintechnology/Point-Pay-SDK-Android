@@ -107,12 +107,15 @@ public class StubPaylevenProvider extends PaylevenProvider {
 
     private static PaymentResult paymentResultWithState(Context context, PaymentState state) {
         return new PaymentResult(
-                "id",
+                "payment identifier",
                 state,
                 BigDecimal.ONE,
                 Currency.getInstance("EUR"),
                 new Date(),
-                null,
+                "authorization code",
+                "signature image url",
+                "terminal identifier",
+                "merchant identifier",
                 null,
                 receiptGenerator(context)
         );

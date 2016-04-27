@@ -148,7 +148,7 @@ public class PaymentProcessingFragment extends Fragment implements PaymentProces
     public void onPaymentComplete(PaymentResult paymentResult) {
         hideSignatureScreenIfShown();
         storeReceiptImage(paymentResult);
-        showPaymentResult(paymentResult.getState());
+        showPaymentResult(paymentResult.getPaymentState());
 
         enableBackNavigation();
     }

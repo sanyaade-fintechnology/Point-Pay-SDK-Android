@@ -228,13 +228,15 @@ After a device is selected it needs to be prepared to accept payments. We will r
 Initialize the actual payment request. For security purposes you must provide the user's current location in the PaymentRequest. The identifier parameter allows you to reference this particular payment for a potential refund in the future. We strongly advise you to save this value in your Backend.
 
  ```java
- private PaymentRequest startPayment(BigDecimal amount, Currency currency, double lattitude, double longitude) {
-     //Generated unique payment id
-     String generatedPaymentId = "unique_payment_id";
+ private PaymentRequest startPayment(BigDecimal paymentAmount, Currency paymentCurrency,
+                                     double lattitude, double longitude) {
+     //Generated unique payment identifier
+     String generatedPaymentIdentifier = "unique_payment_identifier";
      //Current location of the device
-     GeoLocation location = new GeoLocation(lattitude, longitude);
+     GeoLocation paymentLocation = new GeoLocation(lattitude, longitude);
      
-     return new PaymentRequest(amount, currency, generatedPaymentId, location);
+     return new PaymentRequest(paymentAmount, paymentCurrency, generatedPaymentIdentifier,
+                               paymentLocation);
    }
  ```
 
@@ -320,18 +322,19 @@ You can refund a payment conducted via the Point Pay SDK partially or in full.
 #### Start refund
 Initialize the refund payment request and create a refund task. For a refund you need:
 
-- **paymentId**: String to specify the original sale payment's ID that is supposed to be refunded. In the [Start payment](#start-payment) section, it is called "generatedPaymentId".
-- **generatedRefundId**: String to uniquely specify the refund.
-- **amount**: Decimal number indicating the amount to be refunded, which cannot be higher than the original payment's amount.
-- **currency**: 3 letter ISO character (e.g. EUR) that is identical with the original sale payment's currency.
+- **paymentIdentifier**: String to specify the original sale payment's Identifier that is supposed to be refunded. In the [Start payment](#start-payment) section, it is called "generatedPaymentIdentifier".
+- **generatedRefundIdentifier**: String to uniquely specify the refund.
+- **refundAmount**: Decimal number indicating the amount to be refunded, which cannot be higher than the original payment's amount.
+- **refundCurrency**: 3 letter ISO character (e.g. EUR) that is identical with the original sale payment's currency.
 
  ```java
- private RefundRequest startRefund(String paymentId, BigDecimal amount, Currency currency,
-                                                    String description) {
-     //Generated unique refund id
-     String generatedRefundId = "unique_refund_id"
+ private RefundRequest startRefund(String paymentIdentifier, BigDecimal refundAmount,
+                                   Currency refundCurrency, String refundDescription) {
+     //Generated unique refund identifier
+     String generatedRefundIdentifier = "unique_refund_identifier"
      
-     return new RefundRequest(generatedRefundId, paymentId, amount, currency, description);
+     return new RefundRequest(generatedRefundIdentifier, paymentIdentifier, refundAmount,
+                              refundCurrency, refundDescription);
  }
  ```
  

@@ -176,11 +176,11 @@ public class PaymentProcessor {
     }
 
     private void storePaymentResult(PaymentResult result) {
-        final SalePayment payment = new SalePayment(result.getId(),
-                result.getDate(),
-                result.getAmount(),
-                result.getCurrency(),
-                result.getState() == PaymentState.APPROVED ? State.APPROVED : State.FAILED);
+        final SalePayment payment = new SalePayment(result.getPaymentIdentifier(),
+                result.getPaymentDate(),
+                result.getPaymentAmount(),
+                result.getPaymentCurrency(),
+                result.getPaymentState() == PaymentState.APPROVED ? State.APPROVED : State.FAILED);
 
         mPaymentRepository.addPayment(payment);
     }

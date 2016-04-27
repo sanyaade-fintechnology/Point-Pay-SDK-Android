@@ -74,8 +74,8 @@ public class RefundProcessor {
      * amount is zero.
      */
     private void updatePaymentInRepository(RefundResult result) {
-        String paymentId = result.getPaymentId();
-        BigDecimal remainingAmount = result.getRemainingAmount();
+        String paymentId = result.getPaymentIdentifier();
+        BigDecimal remainingAmount = result.getRefundableAmount();
 
         mPaymentRepository.updateAmount(paymentId, remainingAmount);
 
