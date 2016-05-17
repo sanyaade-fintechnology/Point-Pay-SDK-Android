@@ -375,7 +375,7 @@ private Bitmap generateReceipt(PaymentResult paymentResult, int width, int textS
 ```
       
 ### Documentation
-[API Reference](http://payleven.github.io/mPOS-SDK-Android/1.2.1/javadoc/)
+[API Reference](http://payleven.github.io/Point-Pay-SDK-Android/1.2.1/javadoc/)
 
 ### Point Pay SDK Sample App
 The Point Pay SDK includes a sample app illustrating how the SDK can be integrated. Within this sample app is possible to select a card reader, make payments and refund them. It also contains a Signature View where the user can sign in case the payment requires a signature.
