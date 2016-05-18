@@ -396,9 +396,16 @@ private Bitmap generateReceipt(PaymentResult paymentResult, int width, int textS
 ```
 
 ### Point Pay SDK Sample App
-The Point Pay SDK includes a sample app illustrating how the SDK can be integrated. Within this sample app is possible to select a card reader, make payments and refund them. It also contains a Signature View where the user can sign in case the payment requires a signature.
-Please note that the location is hardcoded and needs to be changed depending on the country the user is conducting the payment.
-From version 1.2.1, the SDK includes bla bla bla
+The Point Pay SDK includes a sample app illustrating how the SDK can be integrated. 
+> Note: 
+> - The location is hardcoded and needs to be changed depending on the country that the user is conducting the payment.
+> - The Package name of the sample app has been registered already and is uniquely associated to the API key used in the project. In case you change the API key to the one you have obtained from payleven during the developer registration, please remember to change also the Package name to the one you have registered.
+
+The sample integration exemplifies the following:
+- It allows to select a card reader, conduct card payments and (partially) refund them.
+- It also contains a signature view, where the user can sign in case the payment requires a signature. 
+- In alignment with the provided payment progress states (See above under "Payment"), **optional** and customizable UI elements are offered for integration to enhance the user experience.
+
 ```java
 private void startPayment() {
         PaylevenTools.showDevicePreparation(getActivity(), mPaymentProgressStateView);
