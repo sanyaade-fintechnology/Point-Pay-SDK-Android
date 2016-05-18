@@ -38,8 +38,9 @@ From version 1.1.0 onwards, the payleven Point Pay SDK provides an API to proces
   * [Start refund](#start-refund)
   * [Handle refund](#handle-refund)
 * [Receipts](#receipts)
-* [Documentation](#documentation)
 * [Point Pay SDK Sample App](#point-pay-sdk-sample-app)
+* [Documentation](#documentation)
+
 
 ### Installation
 
@@ -393,9 +394,6 @@ private Bitmap generateReceipt(PaymentResult paymentResult, int width, int textS
    return generator.generateReceipt(receiptConfig);		
 }		
 ```
-      
-### Documentation
-[API Reference](http://payleven.github.io/Point-Pay-SDK-Android/1.2.1/javadoc/)
 
 ### Point Pay SDK Sample App
 The Point Pay SDK includes a sample app illustrating how the SDK can be integrated. Within this sample app is possible to select a card reader, make payments and refund them. It also contains a Signature View where the user can sign in case the payment requires a signature.
@@ -414,3 +412,5 @@ public void onPaymentProgressStateChanged(PaymentProgressState paymentProgressSt
                 paymentProgressState.name());		
 }		
 ```
+### Documentation
+[API Reference](http://payleven.github.io/Point-Pay-SDK-Android/1.2.1/javadoc/)
