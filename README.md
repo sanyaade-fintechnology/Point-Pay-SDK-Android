@@ -22,6 +22,7 @@ From version 1.1.0 onwards, the payleven Point Pay SDK provides an API to proces
   * [Repository](#repository)
   * [Dependencies](#dependencies)
   * [GSON](#gson)
+  * [OkHttp](#okhttp)
   * [Eclipse integration](#eclipse-integration)
   * [Permissions](#permissions)
   * [Services](#services)
@@ -119,6 +120,25 @@ In the project pom.xml file:
    <version>2.4</version>
  </dependency>
  ```
+ 
+#### OkHttp
+Include OkHttp library as the http client used by the SDK.
+###### Gradle
+In the module's gradle.build file, inside the dependencies section:
+ ```groovy
+ compile 'com.squareup.okhttp:okhttp:2.7.5'
+ ```
+  
+###### Maven
+In the project pom.xml file:
+ ```xml
+ <dependency>
+   <groupId>com.squareup.okhttp</groupId>
+   <artifactId>okhttp</artifactId>
+   <version>2.7.5</version>
+ </dependency>
+ ```
+ 
 #### Eclipse integration
 Though we strongly recommend using Gradle and Android Studio, we also provided the sample for
 Eclipse users.
@@ -380,3 +400,17 @@ private Bitmap generateReceipt(PaymentResult paymentResult, int width, int textS
 ### Point Pay SDK Sample App
 The Point Pay SDK includes a sample app illustrating how the SDK can be integrated. Within this sample app is possible to select a card reader, make payments and refund them. It also contains a Signature View where the user can sign in case the payment requires a signature.
 Please note that the location is hardcoded and needs to be changed depending on the country the user is conducting the payment.
+From version 1.2.1, the SDK includes bla bla bla
+```java
+private void startPayment() {
+        PaylevenTools.showDevicePreparation(getActivity(), mPaymentProgressStateView);
+}
+
+@Override
+public void onPaymentProgressStateChanged(PaymentProgressState paymentProgressState) {
+	PaylevenTools.showPaymentProgressAnimation(
+                getActivity(),
+                mPaymentProgressStateView,
+                paymentProgressState.name());		
+}		
+```
