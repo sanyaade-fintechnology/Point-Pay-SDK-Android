@@ -18,6 +18,11 @@ android {
         versionCode 1
         versionName "1.2.1"
         buildConfigField "String", "PAYLEVEN_API_KEY", "\"01a4ac1954c3408caca76ba087ae2510\""
+        generatedDensities = []
+    }
+
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
     }
 }
 
