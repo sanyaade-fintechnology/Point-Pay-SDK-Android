@@ -1,4 +1,4 @@
-# payleven Point Pay SDK
+![payleven Point Pay SDK for Android](https://massets.payleven.com/imgs/point_pay_logos/payleven_pointpay_sdk_logo.png "payleven Point Pay SDK for Android")
 
 [![Platform](https://img.shields.io/badge/Platform-Android-brightgreen.svg?style=flat-square)]()
 [![Version](https://img.shields.io/badge/version-1.2.1-brightgreen.svg?style=flat-square)]()
