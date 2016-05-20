@@ -1,5 +1,6 @@
 ![payleven Point Pay SDK for Android](https://massets.payleven.com/imgs/point_pay_logos/payleven_pointpay_sdk_logo.png "payleven Point Pay SDK for Android")
 
+[![Licence](https://img.shields.io/badge/Licence-MIT-brightgreen.svg?style=flat-square)]()
 [![Platform](https://img.shields.io/badge/Platform-Android-brightgreen.svg?style=flat-square)]()
 [![Version](https://img.shields.io/badge/version-1.2.1-brightgreen.svg?style=flat-square)]()
 [![API](https://img.shields.io/badge/API-14%2B-orange.svg?style=flat-square)]()
