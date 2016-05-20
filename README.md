@@ -8,7 +8,8 @@
 This project enables an Android API to communicate with the payleven Classic (Chip & PIN) and Plus (NFC) card reader to accept debit and credit card payments. Learn more about the card readers on one of payleven's country [websites](https://payleven.com/).
 From version 1.1.0 onwards, the payleven Point Pay SDK provides an API to process full and partial refunds. Additionally, the SDK issues a receipt image of both sale and refund payments that contain the bare minimum of receipt details. If you have any questions or require further assistance, please contact <a href="mailto:developer@payleven.com">developer@payleven.com</a>.
 
-> Note: 
+> Note:
+> 
 > The product has been renamed to payleven Point Pay SDK from mPOS SDK. Any references within the documentation or classes are relevant to payleven Point Pay SDK.
 
 ### Prerequisites
@@ -335,7 +336,9 @@ From v1.2.0 a new callback `onPaymentProgressStateChanged` is provided. This cal
         }
   }
  ```
- 
+> Note: 
+>
+> A successful tap of the card to be charged for a contactless (NFC) transaction is indicated by all four (green) LEDs lighting up on the payleven Plus reader, a confirmation on the reader’s display followed by a short beep of your mobile device. Please ensure the mobile device’s volume is turned-on for audio confirmation.
 
 ### Refund
 You can refund a payment conducted via the Point Pay SDK partially or in full.
