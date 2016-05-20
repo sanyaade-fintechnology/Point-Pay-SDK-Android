@@ -2,8 +2,8 @@
 
 [![Licence](https://img.shields.io/badge/Licence-MIT-brightgreen.svg?style=flat-square)]()
 [![Platform](https://img.shields.io/badge/Platform-Android-brightgreen.svg?style=flat-square)]()
-[![Version](https://img.shields.io/badge/version-1.2.1-brightgreen.svg?style=flat-square)]()
 [![API](https://img.shields.io/badge/API-14%2B-orange.svg?style=flat-square)]()
+[![Version](https://img.shields.io/badge/version-1.2.1-brightgreen.svg?style=flat-square)]()
 [![Berlin](https://img.shields.io/badge/Made%20in-Berlin-red.svg?style=flat-square)]()
 
 This project enables an Android API to communicate with the payleven Classic (Chip & PIN) and Plus (NFC) card reader to accept debit and credit card payments. Learn more about the card readers on one of payleven's country [websites](https://payleven.com/).
