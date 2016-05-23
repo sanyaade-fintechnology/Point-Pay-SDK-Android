@@ -15,7 +15,7 @@ From version 1.1.0 onwards, the payleven Point Pay SDK provides an API to proces
 
 ### Prerequisites
 1. Register on one of payleven's country [websites](https://payleven.com/) to get a merchant account and a card reader.
-2. Request an API key by registering for the Point Pay SDK on the [payleven developer page](https://service.payleven.com/uk/developer).
+2. Request an API key by registering for the Point Pay SDK on the [payleven developer page](https://service.payleven.com/uk/developer?product=pointpay&type=SDK).
 3. System requirements: Android API 14 or later for both Point Pay SDK and the Point Pay Sample App.
 4. A payleven card reader, Classic or Plus.
 
