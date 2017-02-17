@@ -1,3 +1,9 @@
+### NOTE: 
+### Payleven and SumUp are now one company. The payleven SDKs are no longer supported. Please see [SumUp's Android SDK](https://github.com/sumup/sumup-android-sdk).
+
+---
+---
+
 ![payleven Point Pay SDK for Android](https://massets.payleven.com/imgs/point_pay_logos/payleven_pointpay_sdk_logo.png "payleven Point Pay SDK for Android")
 
 [![Licence](https://img.shields.io/badge/Licence-MIT-brightgreen.svg?style=flat-square)]()
